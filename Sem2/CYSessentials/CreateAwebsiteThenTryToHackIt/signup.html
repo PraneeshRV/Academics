@@ -1,0 +1,103 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="/js/validation.js" defer></script>
+  </head><h1 style="color:aliceblue; background-color:black;">ETERNITY COMPUTING</h1>
+</head>
+<body style="background-image:url(bg3.jpg);">
+  <h3 style="color: aliceblue;">Sign Up</h3>
+    <div class="container">
+      <form action="process-signup.php" method="post" id="signup" novalidate>
+        <label style="color: aliceblue;"><b>Full Name</b></label>
+        <input type="text" placeholder="Enter Full Name" name="fullname" id="fullname"  required>
+
+        <label style="color: aliceblue;"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" id="username" required><br>
+
+        
+        <label style="color: aliceblue;"><b>Email</b></label><br>
+        <input st type="email" placeholder="Enter Email" name="email" id="email" required>
+<br>
+        <label style="color: aliceblue;"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+        
+        <label style="color: aliceblue;"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirm Password" name="confirmpassword" id="confirmpassword" required>
+
+        <a href="homepage.html">
+        <button type="submit">Register</button>
+      
+        </a>
+    </div>
+  </form>
+    <h4>Already Registered? Click here to Login</h4>
+    <a href="signin.html">
+      <button class="button button1"><b>Login</b></button>
+   </a>
+</body>
+</html>
+<style>
+  @font-face {
+    font-family: Font1;
+    src: url(Valorant.ttf);
+ }
+   
+ h1 {
+    font-family: Font1;
+    font-size: 50;
+    text-align: center;
+ }
+ h3{
+  text-align: center;
+  font-size: 30;
+ }
+ h4{
+  color: aliceblue;
+  text-align: center;
+margin-right: 150px;
+ }
+ p{
+  color:aliceblue;
+ }
+  .container {
+      width: 400px;
+      padding: 16px;
+      background-color: rgb(80, 80, 80);
+      margin: 0 auto;
+      margin-top: 50px;
+      border: 1px solid black;
+      border-radius: 4px;
+      margin-left: 700px;
+  }
+  input[type=text], input[type=email], input[type=password] {
+      width: 90%;
+      padding: 15px;
+      margin: 5px 0 10px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+  }
+  button {
+      background-color: #003cff;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      
+  }
+  .button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #0489aa;
+width: 200px;
+margin-left: 800px;
+  }
+  button:hover {
+      opacity:1;
+  }
+
+</style>

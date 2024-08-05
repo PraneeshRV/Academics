@@ -1,0 +1,73 @@
+
+<ul style="color: black;">
+    <li style="float: left;"><a href="home.html">Home</a></li>
+    <li><a href="page5.html">image gallery</a></li>
+    <li><a href="page4.html">Time Table</a></li>
+    <li><a href="page3.html">Contact Me</a></li>
+    <li><a href="page2.html">About</a></li>
+  </ul>
+  <div class="div1">
+    <br/><h1>My favourite anime characters</h1>
+<table>
+    <tr>
+<td><img src="d.jpg" alt="gojo"></td>
+<td><img src="a.jpg" alt="gojo"></td>
+<td><img src="gojo.webp" alt="gojo"></td>
+</tr>
+<tr>
+<td><img src="b.jpg" alt="gojo"></td>
+<td><img src="c.jpg" alt="gojo"></td>
+<td><img src="gojo.webp" alt="gojo"></td>
+</tr>
+</table>
+</div>
+
+<style>
+      body{
+        background-color: black;
+        color: antiquewhite;
+    }
+
+    ul { 
+margin:0px; 
+padding: 0; 
+list-style: none; 
+text-align: center;
+} 
+li { 
+display: table-cell; 
+position: sticky; 
+float: right;
+}
+a {
+color: #fff;
+text-transform: uppercase;
+text-decoration: none;
+letter-spacing: 0.15em;
+
+display: inline-block;
+padding: 15px 20px;
+position: relative;
+}
+a:after {    
+background: none repeat scroll 0 0 transparent;
+bottom: 0;
+content: "";
+display: block;
+height: 2px;
+left: 50%;
+position: absolute;
+background: #fff;
+transition: width 0.3s ease 0s, left 0.3s ease 0s;
+width: 0;
+}
+a:hover:after { 
+width: 100%; 
+left: 0; 
+}
+@media screen and (max-height: 300px) {
+ul {
+    margin-top: 40px;
+}
+}
+</style>

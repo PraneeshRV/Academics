@@ -1,0 +1,115 @@
+<html>
+    <body>
+
+    <ul style="color: black;">
+    <li style="float: left;"><a href="home.html">Home</a></li>
+    <li><a href="page5.html">image gallery</a></li>
+    <li><a href="page4.html">Time Table</a></li>
+    <li><a href="page3.html">Contact Me</a></li>
+    <li><a href="page2.html">About</a></li>
+  </ul>
+  <div class="div1">
+    <div class="about-me">
+        <h1>About Me</h1>
+        <p>I'm currently pursuing my B Tech in Cybersecurity at Amrita Vishwa Vidyapeetham, Coimbatore.<br/>
+       I have a strong passion for technology and cybersecurity,<br/>
+       I'm skilled in various programming languages and tools which are listed below.</p>
+    </div>
+
+    <div class="skills">
+        <h2 style="margin-left: 25px;">My Skills</h2>
+        <div>
+            <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JavaScript" class="skill-icon">
+            <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML" class="skill-icon">
+            <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS" class="skill-icon">
+            <img src="https://img.icons8.com/?size=100&id=shQTXiDQiQVR&format=png&color=000000" alt="C" class="skill-icon">
+            <img src="https://img.icons8.com/?size=100&id=17842&format=png&color=000000" alt="Linux" class="skill-icon">
+            <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="Git" class="skill-icon">
+            
+        </div>
+    </div>
+    <video width="320" height="240" controls>
+        <source src="html.mp4" type="video/mp4">
+        <source src="html.mp4" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+  </div>
+
+  </body>
+  </html>
+  <style>
+    p{
+        font-size: 25px;
+    }
+      body{
+        font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            
+        background-color: black;
+        color: antiquewhite;
+    }
+    .about-me {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .skills {
+            margin-top: 30px;
+            align-items: center;
+        }
+        .skill-icon {
+            margin: 10px;
+            width: 60px;
+            height: 60px;
+        }
+    .div1{
+      background-image: url(w3.jpg);
+      background-size:cover;
+      background-repeat: no-repeat;
+      height: 700px;
+    }
+        ul { 
+  margin:0px; 
+  padding: 0; 
+  list-style: none; 
+  text-align: center;
+} 
+li { 
+  display: table-cell; 
+  position: sticky; 
+  float: right;
+}
+a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+@media screen and (max-height: 300px) {
+	ul {
+		margin-top: 40px;
+	}
+}
+  </style>
