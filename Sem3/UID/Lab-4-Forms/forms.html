@@ -3,35 +3,68 @@
 <body style="background-color: black;">
   <h3 style="color: aliceblue;">Sign Up</h3>
     <div class="container">
-      <form id="signup" novalidate>
-        <label style="color: aliceblue;"><b>Full Name</b></label>
-        <input type="text" placeholder="Enter Full Name"  id="fullname"  required>
+      <form id="signup">
+        <fieldset>
+        <legend style="color: aliceblue;">Section 1</legend>
+        <label style="color: aliceblue;"><b>Full Name</b></label><br/>
+        <input type="text" placeholder="Enter Full Name"  id="fullname"  required><br/>
 
-        <label style="color: aliceblue;"><b>Username</b></label>
+        <label style="color: aliceblue;"><b>Username</b></label><br/>
         <input type="text" placeholder="Enter Username"  id="username" required><br>
-
-        
+        <label style="color: aliceblue;"><b>Age</b></label><br/>
+        <input type="number" placeholder="Enter Age"  id="age" required><br>
         <label style="color: aliceblue;"><b>Email</b></label><br>
-        <input st type="email" placeholder="Enter Email" id="email" required>
+        <input type="email" placeholder="Enter Email" id="email" required>
 <br>
-        <label style="color: aliceblue;"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password"  id="password" required>
-        
-        <label style="color: aliceblue;"><b>Confirm Password</b></label>
-        <input type="password" placeholder="Confirm Password" id="confirmpassword" required>
-
-        <input type="radio" >
-        <for><label></label></for>
-        <input type="radio" >
-
-        <button type="submit">Register</button>
+        <label style="color: aliceblue;"><b>Password</b></label><br/>
+        <input type="password" placeholder="Enter Password"  id="password" required><br/>
+      </fieldset>
+      <fieldset>
+        <legend style="color: aliceblue;">Section 2</legend>
+        <label style="color: aliceblue;">Gender<br/>
+        <input type="radio" name="gender1" value="male"> Male
+        <input type="radio" name="gender2" value="female"> Female
+        </label><br/>
+        <label style="color: aliceblue;"><b>Languages</b><br/>
+        <input type="checkbox" id="language1" name="language1" value="Tamil">
+        <label for="language1"> Tamil</label><br/>
+        <input type="checkbox" id="language2" name="language2" value="English">
+        <label for="language2"> English</label><br/>
+        <input type="checkbox" id="language3" name="language3" value="Hindi">
+        <label for="language3"> Hindi</label><br/>
+        <input type="checkbox" id="language4" name="language4" value="Telugu">
+        <label for="language4"> Telugu</label><br/>
+        <input type="checkbox" id="language5" name="language5" value="Kannada">
+        <label for="language5"> Kannada</label><br/>
+        <input type="checkbox" id="language6" name="language6" value="Malayalam">
+        <label for="language6"> Malayalam</label><br/>
+        </label><br/>
+        </fieldset>
+        <fieldset>
+        <legend style="color: aliceblue;">Section 3</legend>
+        <label style="color: aliceblue;" for="employment">Employment</label>
+        <select id="employment" name="employment" >
+        <option value="volvo" selected>Student</option>
+        <option value="saab">Unemployed</option>
+        <option value="fiat">Employed</option>
+        <option value="audi">Entrepreneur</option>
+        </select><br/>
+        <label style="color: aliceblue;"><b>Date of Birth</b></label><br/>
+        <input type="date" id="birthday" name="birthday"><br/>
+        <label style="color: aliceblue;"><b>Address</b></label><br/>
+        <textarea id="address" name="address" rows="4" cols="50"></textarea><br/>
+        <label style="color: aliceblue;"><b>Phone Number</b></label><br/>
+        <input type="tel" id="phone" name="phone"><br/>
+        <label style="color: aliceblue;"><b>Upload Resume</b></label><br/>
+        <input type="file" id="myFile" name="filename"><br/>
+        <label style="color: aliceblue;"><b>Fav color</b></label><br/>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br/>
+        </fieldset>
+        <br/><button type="submit">Register</button>
       
-        </a>
+
     </div>
   </form>
-    <h4>Already Registered? Click here to Login</h4>
-      <button class="button button1"><b>Login</b></button>
-   </a>
 </body>
 </html>
 <style>  
@@ -61,29 +94,4 @@ margin-right: 150px;
       border-radius: 4px;
       margin-left: 400px;
   }
-  input[type=text], input[type=email], input[type=password] {
-      width: 90%;
-      padding: 15px;
-      margin: 5px 0 10px 0;
-      display: inline-block;
-      border: none;
-      background: #f1f1f1;
-  }
-  button {
-      color: black;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-      
-  }
-  .button1 {
-    background-color: white;
-    color: black;
-width: 200px;
-margin-left: 500px;
-  }
-
 </style>
