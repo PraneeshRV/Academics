@@ -63,7 +63,7 @@ int main() {
 
     // Display results
     displayProcesses(processes, MAX_PROCESSES);
-
+    
     // Calculate and display average waiting time and turnaround time
     float avg_waiting_time = 0, avg_turnaround_time = 0;
     for (int i = 0; i < MAX_PROCESSES; i++) {
@@ -77,4 +77,5 @@ int main() {
     printf("\nAverage Turnaround Time: %.2f\n", avg_turnaround_time);
 
     return 0;
+    
 }
