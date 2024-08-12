@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: black;">
+    <div class="container1">
+      <form id="signup">
+
+        <legend style="color: rgb(186, 209, 15); text-align: center; font-size: x-large" >Personal Details</legend>
+        <label style="color: aliceblue;"><b>Name</b></label><br/>
+        <input type="text" placeholder="Enter Full Name"  id="fullname"  required><br/>
+        <label style="color: aliceblue;"><b>Email</b></label><br>
+        <input type="email" placeholder="Enter Email" id="email" required><br>
+        <label style="color: aliceblue;"><b>Password</b></label><br/>
+        <input type="password" placeholder="Enter Password"  id="password" required><br/>
+        <label style="color: aliceblue;">Gender<br/>
+        <input type="radio" name="gender1" value="male"> Male
+        <input type="radio" name="gender2" value="female"> Female
+        </label><br/>
+        <label style="color: aliceblue;"><b>Contact#</b></label><br/>
+        <input type="tel" id="phone" name="phone" placeholder="9876543210"><br/>
+        <legend style="color: rgb(186, 209, 15); text-align: center; font-size: x-large" >Education Qualifications</legend>
+        <label style="color: aliceblue;"><b>Hobbies</b><br/>
+            <input type="checkbox" id="hobby1" name="hobby1" value="Video games">
+            <label for="language1"> Video Games</label><br/>
+            <input type="checkbox" id="hobby2" name="hobby2" value="Art">
+            <label for="language2"> Art</label><br/>
+            <legend style="color: rgb(186, 209, 15); text-align: center; font-size: x-large" >Address</legend>
+            <textarea id="address" name="address" rows="4" cols="50"></textarea><br/>
+            <label style="color: aliceblue;"><b>Attach Resume</b></label><br/>
+            <input type="file" id="myFile" name="filename"><br/>
+
+            <br/><button type="submit">Submit</button>
+        </div>
+    </form>
+    
+    <div class="container2">
+      <form id="signup">
+
+        <legend style="color: rgb(186, 209, 15); text-align: center; font-size: x-large" >Step 1: Your Details</legend>
+        <fieldset>
+        <label style="color: aliceblue;"><b>Name</b>&nbsp</label>
+        <input type="text" placeholder="Enter Full Name"  id="fullname"  required><br/>
+      </fieldset>
+      <fieldset>
+        <label style="color: aliceblue;"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" id="email" required><br>
+      </fieldset>
+      <fieldset>
+        <label style="color: aliceblue;"><b>Phone</b></label>
+        <input type="tel" id="phone" name="phone" placeholder="9876543210"><br/>
+      </fieldset>
+
+        <legend style="color: rgb(186, 209, 15); text-align: center; font-size: x-large" >Step 2: Delivery Address</legend>
+          <fieldset>
+          <label style="color: aliceblue;"><b>Address</b></label><br>
+          <textarea id="address" name="address" rows="4" cols="50"></textarea><br/>
+          </fieldset>
+          <fieldset>
+          <label style="color: aliceblue;"><b>Postal Code</b></label>
+          <input type="text" placeholder="Postal code"  id="postcode"  required><br/>
+          </fieldset>
+          <fieldset>
+            <label style="color: aliceblue;"><b>Country</b></label>
+            <input type="text" placeholder="Country"  id="country"  required><br/>
+            </fieldset>
+          <legend style="color: rgb(186, 209, 15); text-align: center; font-size: x-large" >Step 3: Card Details</legend>
+          <fieldset style="color: antiquewhite;">
+            <label style="color: aliceblue;"><b>Card Type</b></label>
+          <input type="radio" name="card1" value="Visa"> Visa
+            <input type="radio" name="card2" value="AmEx"> AmEx
+            <input type="radio" name="card3" value="MasterCard"> MasterCard
+            </fieldset>
+            <fieldset>
+              <label style="color: aliceblue;"><b>Card Number</b></label>
+              <input type="text" placeholder="cardnumber"  id=cardnumber"  required><br/>
+              </fieldset>
+              <fieldset>
+              <label style="color: aliceblue;"><b>Security code</b></label>
+              <input type="text" placeholder="securitycode"  id=securitycode"  required><br/>
+              </fieldset>
+              <fieldset>
+              <label style="color: aliceblue;"><b>Name on card</b></label>
+            <input type="text" placeholder="Name on card"  id="cardname"  required>
+            </label><br/>
+            </fieldset>
+            <br/><button type="submit">BUY IT !</button>
+        </div>
+    </form>
+    
+</body>
+<div style="float: inline-end; margin-top: 150px;"><footer style="color: aliceblue;">&copy Praneesh R V - CYS23036</footer></div>
+</html>
+<style>  
+body {
+    min-height: 100vh;
+
+}
+ h1 {
+
+    font-size: 50;
+    text-align: center;
+ }
+ h3{
+  text-align: center;
+  font-size: 30;
+ }
+ h4{
+  color: aliceblue;
+  text-align: center;
+margin-right: 150px;
+ }
+ p{
+  color:aliceblue;
+ }
+  .container1 {
+      width: 400px;
+      padding: 16px;
+      margin: auto;
+      margin-top: 50px;
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 4px;
+      margin-left: 200px;
+      background-color: rgb(5, 55, 57);
+      float: left;
+  }
+  .container2 {
+    float: right;
+      width: 400px;
+      padding: 16px;
+      margin: auto;
+      margin-top: 50px;
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 4px;
+      margin-right: 200px;
+      background-color: rgb(5, 55, 57);
+  }
+  fieldset{
+    padding: auto;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255,.3);
+  }
+  button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+  }
+</style>
+
+
+
+
+
+
+
+
