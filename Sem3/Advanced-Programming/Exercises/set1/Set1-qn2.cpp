@@ -9,7 +9,10 @@ private:
 
 public:
 
-    Vector(double x = 0, double y = 0) : x(x), y(y) {}
+    Vector(double _x = 0, double _y = 0){
+        x = _x;
+        y = _y;
+    }
 
     double dotProduct(const Vector& other) const {
         return (x * other.x) + (y * other.y);

@@ -1,41 +1,38 @@
 #include <iostream>
+using namespace std;
 
 class Time {
 private:
-    int hours;
-    int minutes;
+    int hrs;
+    int mins;
 
 public:
-    Time(int h = 0, int m = 0) : hours(h), minutes(m) {}
+    Time(int _h = 0, int _m = 0){
+        hrs=_h;
+        mins=_m;
+        }
 
     bool operator==(const Time& other) const {
-        return (hours == other.hours && minutes == other.minutes);
+        return (hrs == other.hrs && mins == other.mins);
     }
 
     void display() const {
-        std::cout << hours << ":" << (minutes < 10 ? "0" : "") << minutes;
+
+        cout << hrs << ":" << (mins < 10 ? "0" : "") << mins;
     }
 };
 
 int main() {
     Time t1(14, 30);
-    Time t2(14, 30);
-    Time t3(15, 45);
-
-    std::cout << "t1 = ";
+    Time t2(12, 3);
+    cout << "t1 = ";
     t1.display();
-    std::cout << std::endl;
-
-    std::cout << "t2 = ";
+   cout << endl;
+    
+    cout << "t2 = ";
     t2.display();
-    std::cout << std::endl;
 
-    std::cout << "t3 = ";
-    t3.display();
-    std::cout << std::endl;
-
-    std::cout << "t1 == t2: " << (t1 == t2 ? "Equal" : "Not Equal") << std::endl;
-    std::cout << "t1 == t3: " << (t1 == t3 ? "Equal" : "Not Equal") << std::endl;
+cout << endl<<"the times t1 & t2 are "<< (t1 == t2 ? "Equal" : "Not Equal") << endl;
 
     return 0;
 }
