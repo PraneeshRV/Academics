@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+using namespace std;
 
 class Vector {
 private:
@@ -24,7 +25,7 @@ public:
     }
 
     void print() const {
-        std::cout << "(" << x << ", " << y << ")" << std::endl;
+        cout << "(" << x << ", " << y << ")" <<endl;
     }
 };
 
@@ -33,13 +34,19 @@ int main() {
     Vector v2(8.0, 4.0);
 
     double dot = v1.dotProduct(v2);
-    std::cout << "Dot product of v1 and v2: " << dot << std::endl;
+    cout << "v1 . v2: " << dot <<endl;
 
     double cross = v1.crossProduct(v2);
-    std::cout << "Cross product of v1 and v2: " << cross << std::endl;
+    cout << "v1 x v2: " << cross <<endl;
 
-    double mag = v1.magnitude();
-    std::cout << "Magnitude of v1: " << mag << std::endl;
+    double magv1 = v1.magnitude();
+    cout << "v1 magnitude: " << magv1 <<endl;
+    double magv2 = v2.magnitude();
+    cout << "v2 magnitude: " << magv2 <<endl;
+    cout<<"vector v1:"<<endl;
+    v1.print();
+    cout<<"vector v2:"<<endl;
+    v2.print();
 
     return 0;
 }
