@@ -1,84 +1,82 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
 
-class Polynomial {
+class Poly {
 private:
     int degree;
-    int *coefficients;
+    int coeff[100];
 
 public:
-    Polynomial(int deg) {
+
+    Poly(int deg) {
         degree = deg;
-        coefficients = new int[degree + 1];
         for (int i = 0; i <= degree; i++) {
-            coefficients[i] = 0;
+            coeff[i] = 0;
         }
     }
 
-    Polynomial(int deg, int coeffs[]) {
+    Poly(int deg, int coef[]) {
         degree = deg;
-        coefficients = new int[degree + 1];
         for (int i = 0; i <= degree; i++) {
-            coefficients[i] = coeffs[i];
+            coeff[i] = coef[i];
         }
     }
 
-    Polynomial add(const Polynomial& other) const {
-        int maxDegree = max(degree, other.degree);
-        Polynomial result(maxDegree);
+    Poly add(const Poly& other) const {
+        int maxDeg = max(degree, other.degree);
+        int resCoef[10] = {0};
 
-        for (int i = 0; i <= maxDegree; i++) {
+        for (int i = 0; i <= maxDeg; i++) {
             if (i <= degree) {
-                result.coefficients[i] += coefficients[i];
+                resCoef[i] += coeff[i];
             }
             if (i <= other.degree) {
-                result.coefficients[i] += other.coefficients[i];
+                resCoef[i] += other.coeff[i];
             }
         }
 
-        return result;
+        return Poly(maxDeg, resCoef);
     }
 
-    Polynomial subtract(const Polynomial& other) const {
-        int maxDegree = max(degree, other.degree);
-        Polynomial result(maxDegree);
+    Poly subtract(const Poly& other) const {
+        int maxDeg = max(degree, other.degree);
+        int resCoef[10] = {0};
 
-        for (int i = 0; i <= maxDegree; i++) {
+        for (int i = 0; i <= maxDeg; i++) {
             if (i <= degree) {
-                result.coefficients[i] += coefficients[i];
+                resCoef[i] += coeff[i];
             }
             if (i <= other.degree) {
-                result.coefficients[i] -= other.coefficients[i];
+                resCoef[i] -= other.coeff[i];
             }
         }
 
-        return result;
+        return Poly(maxDeg, resCoef);
     }
 
     int evaluate(int x) const {
         int result = 0;
         for (int i = 0; i <= degree; i++) {
-            result += coefficients[i] * pow(x, i);
+            result += coeff[i] * pow(x, i);
         }
         return result;
     }
 
     void print() const {
         for (int i = degree; i >= 0; i--) {
-            if (coefficients[i] != 0) {
-                if (i != degree && coefficients[i] > 0) {
+            if (coeff[i] != 0) {
+                if (i != degree && coeff[i] > 0) {
                     cout << " + ";
                 }
-                if (coefficients[i] < 0) {
+                if (coeff[i] < 0) {
                     cout << " - ";
-                    if (abs(coefficients[i]) != 1 || i == 0) {
-                        cout << abs(coefficients[i]);
+                    if (abs(coeff[i]) != 1 || i == 0) {
+                        cout << abs(coeff[i]);
                     }
                 } else {
-                    if (coefficients[i] != 1 || i == 0) {
-                        cout << coefficients[i];
+                    if (coeff[i] != 1 || i == 0) {
+                        cout << coeff[i];
                     }
                 }
                 if (i > 0) {
@@ -94,28 +92,28 @@ public:
 };
 
 int main() {
-    int coeffs1[] = {1, 2, 3}; 
-    int coeffs2[] = {3, 4};    
+    int co1[] = {1, 2, 3}; 
+    int co2[] = {3, 4};    
 
-    Polynomial p1(2, coeffs1);
-    Polynomial p2(1, coeffs2);
+    Poly p1(2, co1);
+    Poly p2(1, co2);
 
-    cout << "Polynomial p1: ";
+    cout<<"p1"<<endl;
     p1.print();
 
-    cout << "Polynomial p2: ";
+    cout<<"p2"<<endl;
     p2.print();
 
-    Polynomial p3 = p1.add(p2);
-    cout << "p1 + p2: ";
+    Poly p3 = p1.add(p2);
+    cout<<"p1+p2"<<endl;
     p3.print();
 
-    Polynomial p4 = p1.subtract(p2);
-    cout << "p1 - p2: ";
+    Poly p4 = p1.subtract(p2);
+    cout<<"p1-p2"<<endl;
     p4.print();
 
-    int value = p1.evaluate(2);
-    cout << "p1 evaluated at x = 2: " << value << endl;
+    int value = p2.evaluate(4);
+    cout << "p2 at x=4"<<endl<<value;
 
     return 0;
 }
