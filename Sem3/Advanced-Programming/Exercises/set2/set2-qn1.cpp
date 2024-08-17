@@ -17,7 +17,6 @@ public:
     }
 
     void display() const {
-
         cout << hrs << ":" << (mins < 10 ? "0" : "") << mins;
     }
 };
