@@ -29,8 +29,8 @@ public:
 };
 
 int main() {
-    Vector v1(3.0, 4.0);
-    Vector v2(1.0, 2.0);
+    Vector v1(3.0, 7.0);
+    Vector v2(8.0, 4.0);
 
     double dot = v1.dotProduct(v2);
     std::cout << "Dot product of v1 and v2: " << dot << std::endl;
