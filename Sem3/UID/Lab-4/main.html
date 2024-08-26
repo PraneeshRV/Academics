@@ -4,84 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0);
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item:hover img {
-            opacity: 1;
-        }
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-        .gallery-item:visited img {
-            border: 3px solid #9932CC;
-        }
-        .gallery-item:link img {
-            border: 3px solid #4CAF50;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Image Gallery</h1>
-    <div class="gallery">
-        <a href="#" class="gallery-item">
-            <img src="https://picsum.photos/300/200?random=1" alt="Image 1">
-        </a>
-        <a href="#" class="gallery-item">
-            <img src="https://picsum.photos/300/200?random=2" alt="Image 2">
-        </a>
-        <a href="#" class="gallery-item">
-            <img src="https://picsum.photos/300/200?random=3" alt="Image 3">
-        </a>
-        <a href="#" class="gallery-item">
-            <img src="https://picsum.photos/300/200?random=4" alt="Image 4">
-        </a>
-        <a href="#" class="gallery-item">
-            <img src="https://picsum.photos/300/200?random=5" alt="Image 5">
-        </a>
-        <a href="#" class="gallery-item">
-            <img src="https://picsum.photos/300/200?random=6" alt="Image 6">
-        </a>
+    <div class="gallery-container">
+        <h1 class="gallery-title">Image Gallery</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="a.jpg" alt="Image 1"></div>
+            <div class="gallery-item"><img src="b.jpg" alt="Image 2"></div>
+            <div class="gallery-item"><img src="c.jpg" alt="Image 3"></div>
+            <div class="gallery-item"><img src="d.jpg" alt="Image 4"></div>
+            <div class="gallery-item"><img src="e.webp" alt="Image 5"></div>
+            <div class="gallery-item"><img src="e.webp" alt="Image 6"></div>
+        </div>
     </div>
 </body>
 </html>
