@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Changer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease-in-out;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="changeBackground('image1.jpg')">Image 1</button>
+        <button onclick="changeBackground('image2.jpg')">Image 2</button>
+        <button onclick="changeBackground('image3.jpg')">Image 3</button>
+    </div>
+
+    <script>
+        function changeBackground(imagePath) {
+            document.body.style.backgroundImage = `url('${imagePath}')`;
+        }
+    </script>
+</body>
+</html>

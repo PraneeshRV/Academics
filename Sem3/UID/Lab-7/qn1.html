@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color:black;
+        }
+        #colorBox {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorBox"></div>
+
+    <script>
+        function changeColor(color) {
+            document.getElementById('colorBox').style.backgroundColor = color;
+        }
+
+        function onMouseEnter() {
+            changeColor('blue');
+        }
+
+        function onMouseOut() {
+            changeColor('red');
+        }
+
+        document.getElementById('colorBox').addEventListener('mouseenter', onMouseEnter);
+        document.getElementById('colorBox').addEventListener('mouseout', onMouseOut);
+    </script>   
+</body>
+</html>
