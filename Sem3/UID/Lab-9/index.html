@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: black;
+      color: aliceblue;
+      font-family: Arial, sans-serif;
+    }
+    h3 {
+      text-align: center;
+      font-size: 30px;
+    }
+    .container {
+      width: 600px;
+      padding: 16px;
+      margin: 0 auto;
+      margin-top: 50px;
+      border: 1px solid aliceblue;
+      border-radius: 4px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], input[type="tel"], input[type="number"], input[type="password"], textarea, select {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+    input:valid, textarea:valid, select:valid {
+      border: 2px solid green;
+    }
+    input:invalid, textarea:invalid, select:invalid {
+      border: 2px solid red;
+    }
+    input:out-of-range {
+      border: 2px solid orange;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h3>Sign Up</h3>
+  <div class="container">
+    <form id="signup">
+      <label for="firstname">First name:</label>
+      <input type="text" id="firstname" name="firstname" minlength="3" maxlength="10" required>
+
+      <label for="lastname">Last name:</label>
+      <input type="text" id="lastname" name="lastname" minlength="3" maxlength="10" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+      <label>Gender:</label>
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="female">Female</label>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="18" max="21" required>
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" maxlength="30" required></textarea>
+
+      <label for="city">City:</label>
+      <select id="city" name="city" required>
+        <option value="" selected disabled>Select a city</option>
+        <option value="city1">Coimbatore </option>
+        <option value="city2">Chennai</option>
+        <option value="city3">Hosur</option>
+        <option value="city4">Salem</option>
+        <option value="city5">Madurai</option>
+        <option value="city6">Bangalore</option>
+        <option value="city7">Trichy</option>
+        <option value="city8">Walparai</option>
+        <option value="city9">Tuticorin</option>
+        <option value="city10">Tirunelveli</option>
+      </select>
+
+      <label for="username">Preferred username:</label>
+      <input type="text" id="username" name="username" pattern="^[A-Za-z0-9]{5,8}$" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,11}" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</body>
+</html>
