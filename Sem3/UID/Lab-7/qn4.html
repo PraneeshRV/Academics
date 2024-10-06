@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <style>
+        .dropdown {
+            display: none;
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<button id="dropdownButton">Favourite FPS Game</button>
+<ul id="dropdownMenu" class="dropdown">
+    <li>Valorant</li>
+    <li>Apex Legends</li>
+    <li>CS2</li>
+</ul>
+
+<script>
+    const dropdownButton = document.getElementById('dropdownButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    
+    dropdownButton.addEventListener('click', function() {
+        if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
+            dropdownMenu.style.display = 'block';
+        } else {
+            dropdownMenu.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

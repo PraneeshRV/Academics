@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<select id="colorDropdown">
+    <option value="white">White</option>
+    <option value="lightblue">Light Blue</option>
+    <option value="lightgreen">Light Green</option>
+</select>
+
+<script>
+    const colorDropdown = document.getElementById('colorDropdown');
+    colorDropdown.addEventListener('change', function() {
+        document.body.style.backgroundColor = colorDropdown.value;
+    });
+</script>
+
+</body>
+</html>
