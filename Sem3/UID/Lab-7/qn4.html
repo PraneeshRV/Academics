@@ -1,36 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dropdown Menu</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #61a6f1;
+        }
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+        }
         .dropdown {
             display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
             list-style-type: none;
             padding: 0;
+            margin: 0;
+        }
+        .dropdown li {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: black;
+        }
+        .dropdown li:hover {
+            background-color: #f1f1f1;
         }
     </style>
 </head>
 <body>
 
-<button id="dropdownButton">Favourite FPS Game</button>
-<ul id="dropdownMenu" class="dropdown">
-    <li>Valorant</li>
-    <li>Apex Legends</li>
-    <li>CS2</li>
-</ul>
+<div class="dropdown-container">
+    <select id="dropdownSelect" class="dropdown-select">
+        <option value="" disabled selected>Favourite FPS Game</option>
+        <option value="valorant">Valorant</option>
+        <option value="apex">Apex Legends</option>
+        <option value="cs2">CS2</option>
+    </select>
+</div>
 
 <script>
-    const dropdownButton = document.getElementById('dropdownButton');
-    const dropdownMenu = document.getElementById('dropdownMenu');
+    const dropdownSelect = document.getElementById('dropdownSelect');
     
-    dropdownButton.addEventListener('click', function() {
-        if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
-            dropdownMenu.style.display = 'block';
-        } else {
-            dropdownMenu.style.display = 'none';
-        }
+    dropdownSelect.addEventListener('change', function() {
+        console.log('Selected game:', this.value);
     });
 </script>
 

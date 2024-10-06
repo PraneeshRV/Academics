@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double Click Event</title>
     <style>
-        #doubleClickElement {
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #b402e6;
+            color: white;
+        }
+        #doubleClick {
             width: 200px;
             height: 200px;
-            background-color: lightcoral;
+            background-color: rgb(175, 5, 5);
             text-align: center;
             line-height: 200px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
     </style>
 </head>
 <body>
 
-<div id="doubleClickElement">Double Click Me</div>
+<div id="doubleClick">Double Click Here</div>
 
 <script>
-    const doubleClickElement = document.getElementById('doubleClickElement');
+    const doubleClickElement = document.getElementById('doubleClick');
     doubleClickElement.addEventListener('dblclick', function() {
-        alert('Element was double-clicked!');
+        alert('The area was double-clicked!');
     });
 </script>
 

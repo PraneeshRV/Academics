@@ -2,14 +2,34 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #0080ff;
+        }
+        #button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
 </head>
 <body>
 
-<button id="logButton">Click me</button>
+<button id="button">Click me</button>
 
 <script>
-    document.getElementById('logButton').addEventListener('click', function() {
+    document.getElementById('button').addEventListener('click', function() {
         console.log('Button got clicked');
+        alert('Button got clicked');
     });
 </script>
 

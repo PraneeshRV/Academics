@@ -2,14 +2,49 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease;
+            background-color: black;
+            color: white;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            background-color: #333;
+            color: white;
+        }
+        select:hover {
+            border-color: #888;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
+<p>Choose a color from the dropdown to change the background color:</p>
+
 <select id="colorDropdown">
-    <option value="white">White</option>
-    <option value="lightblue">Light Blue</option>
-    <option value="lightgreen">Light Green</option>
+    <option value="black">Black</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="yellow">Yellow</option>
+    <option value="red">Red</option>
+    <option value="purple">Purple</option>
+    <option value="orange">Orange</option>
+    <option value="pink">Pink</option>
 </select>
 
 <script>
