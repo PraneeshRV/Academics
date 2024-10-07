@@ -45,5 +45,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "editor.suggest.showStatusBar": true,
+    "zenMode.hideStatusBar": true
 }
