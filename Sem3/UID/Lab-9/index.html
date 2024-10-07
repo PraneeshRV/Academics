@@ -23,7 +23,7 @@
       display: block;
       margin-top: 10px;
     }
-    input[type="text"], input[type="tel"], input[type="number"], input[type="password"], textarea, select {
+    input[type="text"], input[type="tel"], input[type="number"], input[type="password"], input[type="email"], textarea, select {
       width: 100%;
       padding: 5px;
       margin-top: 5px;
@@ -44,6 +44,10 @@
       color: white;
       border: none;
       cursor: pointer;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
     }
   </style>
 </head>
@@ -87,14 +91,79 @@
         <option value="city10">Tirunelveli</option>
       </select>
 
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
       <label for="username">Preferred username:</label>
       <input type="text" id="username" name="username" pattern="^[A-Za-z0-9]{5,8}$" required>
 
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,11}" required>
+      <span id="passwordError" class="error"></span>
 
       <button type="submit">Register</button>
     </form>
   </div>
+
+  <script>
+    document.getElementById('signup').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Reset error messages
+      document.getElementById('passwordError').textContent = '';
+      
+      // Validate form fields
+      var firstname = document.getElementById('firstname').value;
+      var lastname = document.getElementById('lastname').value;
+      var phone = document.getElementById('phone').value;
+      var gender = document.querySelector('input[name="gender"]:checked');
+      var age = document.getElementById('age').value;
+      var address = document.getElementById('address').value;
+      var city = document.getElementById('city').value;
+      var email = document.getElementById('email').value;
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Validate email
+      if (!validateEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Validate password
+      if (!validatePassword(password)) {
+        document.getElementById('passwordError').textContent = 'Password must be 6-11 characters long, contain at least one uppercase letter, one number, and one special character.';
+        return;
+      }
+
+      // If all validations pass, you can submit the form
+      alert('Form submitted successfully!');
+      // Uncomment the line below to actually submit the form
+      // this.submit();
+    });
+
+    function validateEmail(email) {
+      var atIndex = email.indexOf('@');
+      var dotIndex = email.lastIndexOf('.');
+      return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+    }
+
+    function validatePassword(password) {
+      if (password.length < 6 || password.length > 11) return false;
+      var hasUpperCase = false;
+      var hasNumber = false;
+      var hasSpecialChar = false;
+      var specialChars = '!@#$%^&*';
+      
+      for (var i = 0; i < password.length; i++) {
+        var char = password[i];
+        if (char >= 'A' && char <= 'Z') hasUpperCase = true;
+        else if (char >= '0' && char <= '9') hasNumber = true;
+        else if (specialChars.indexOf(char) !== -1) hasSpecialChar = true;
+      }
+      
+      return hasUpperCase && hasNumber && hasSpecialChar;
+    }
+  </script>
 </body>
 </html>
