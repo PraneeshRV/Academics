@@ -44,7 +44,8 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "map": "cpp"
     },
     "editor.suggest.showStatusBar": true,
     "zenMode.hideStatusBar": true
