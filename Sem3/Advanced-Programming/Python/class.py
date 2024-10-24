@@ -1,6 +1,12 @@
-class Animal:
-    def speak(self):
-        print("this animal makes a sound")
+#python class 
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-animal = Animal()
-animal.speak()
+    def display(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+s1 = Student("Karoor", 19)
+s1.display()
