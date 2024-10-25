@@ -48,5 +48,7 @@
         "map": "cpp"
     },
     "editor.suggest.showStatusBar": true,
-    "zenMode.hideStatusBar": true
+    "zenMode.hideStatusBar": true,
+    "codeium.enableExplainProblem": false,
+    "codeium.snoozeTime": 5
 }
