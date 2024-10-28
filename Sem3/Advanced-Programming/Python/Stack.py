@@ -31,8 +31,8 @@ s = Stack()
 
 # Push elements onto the stack
 s.push(14)
-s.push(03)
-s.push(05)
+s.push(3)
+s.push(5)
 
 # Get the top element
 print("Top element is:", s.peek())  # Output: Top element is: 15
