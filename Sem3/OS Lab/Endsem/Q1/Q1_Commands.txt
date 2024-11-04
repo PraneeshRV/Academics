@@ -1,0 +1,15 @@
+a, mkdir OSEndExam
+
+b, cd OSEndExam
+   touch details.txt
+
+c, echo "Full Name: Praneesh R V "   "Roll Number: CB.SC.U4CYS23036 "  "Home Town Name: Namakkal" > details.txt
+
+d, mkdir Question1
+   mv details.txt Question1
+
+e, chmod +r---wxrwx details.txt
+
+f, sudo cp -r Question1 Q1
+
+g, find /var -name .log
