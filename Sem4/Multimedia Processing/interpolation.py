@@ -2,7 +2,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
-import cv2
 
 # 1. Create 1000x1000 matrix and save to CSV
 def create_matrix_csv():
