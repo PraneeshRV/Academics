@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PrimeNumbersInRange {
+public class Qn1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
@@ -10,7 +10,7 @@ public class PrimeNumbersInRange {
         
         if (start >= end) {
             System.out.println("The second integer must be greater than the first.");
-            return;
+            
         }
         
         System.out.println("Prime numbers between " + start + " and " + end + ":");
