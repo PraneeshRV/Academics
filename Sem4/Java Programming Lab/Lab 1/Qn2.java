@@ -6,7 +6,7 @@ public class Qn2 {
         System.out.println("Enter a number: ");
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        
+        System.out.println("Prime factors of " + n + ":");
         for (int i = 2; i <= n; i++) {
             while (n % i == 0) {
                 System.out.print(i + " ");

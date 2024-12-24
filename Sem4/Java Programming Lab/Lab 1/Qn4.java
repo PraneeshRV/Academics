@@ -1,4 +1,3 @@
-
 public class Qn4 {
     public static void pattern(String s) {
         int n = s.length();

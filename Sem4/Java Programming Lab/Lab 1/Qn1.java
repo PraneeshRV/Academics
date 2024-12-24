@@ -1,9 +1,7 @@
 import java.util.Scanner;
-
 public class Qn1 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
+        Scanner scanner = new Scanner(System.in); 
         System.out.print("Enter two integers (second should be greater than first): ");
         int start = scanner.nextInt();
         int end = scanner.nextInt();
@@ -12,7 +10,6 @@ public class Qn1 {
             System.out.println("The second integer must be greater than the first.");
             
         }
-        
         System.out.println("Prime numbers between " + start + " and " + end + ":");
         for (int i = start; i <= end; i++) {
             if (isPrime(i)) {
@@ -21,7 +18,6 @@ public class Qn1 {
         }
         scanner.close();
     }
-
     public static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
