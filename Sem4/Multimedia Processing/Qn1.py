@@ -20,7 +20,6 @@ for j in range(col):
     for i in range(row):
         col_sum += l[i][j]
     sum_col.append(col_sum)
-#
 with open("output.csv", mode="w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(sum_row)
