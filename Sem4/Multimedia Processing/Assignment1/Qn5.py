@@ -1,4 +1,4 @@
-# write a program for bilinear interpolation 
+#5. write a program for bilinear interpolation 
 import random
 l = []
 for i in range(2):

@@ -1,4 +1,4 @@
-# write a program for nearest interpolation 
+#6. write a program for nearest interpolation 
 import random
 l = []
 for i in range(2):
