@@ -51,7 +51,7 @@ public class Q4 {
             sc.nextLine(); 
         }
 
-        
+        sc.close();
         for (int i = 0; i < 2; i++) {
             innings[i].display(i + 1);
         }

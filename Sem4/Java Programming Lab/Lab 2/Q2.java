@@ -28,6 +28,7 @@ public void display(){
 public class Q2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        
 
         System.out.println("enter the first time");
         Time time1 = new Time(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
@@ -37,7 +38,7 @@ public class Q2 {
 
         System.out.println("final Time is :");
         Time result = time1.add(time2);
-        
+        scanner.close();
         result.display();
     }
 }

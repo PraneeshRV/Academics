@@ -27,7 +27,7 @@ public class Q5 {
         
         Occurence occ = new Occurence();
         
-        
+        sc.close();
         System.out.println("Occurrences: " + occ.count(str, ch));
     }
 }

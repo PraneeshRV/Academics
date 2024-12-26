@@ -69,7 +69,7 @@ public class Q3 {
         
         Prof highestSalaryProf = findHighestSalaryProfessor(professors);
 
-       
+        sc.close();
         System.out.println("\nProfessor with the highest salary:");
         System.out.println("ID: " + highestSalaryProf.id);
         System.out.println("Name: " + highestSalaryProf.name);
