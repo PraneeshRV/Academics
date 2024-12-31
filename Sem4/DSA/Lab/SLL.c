@@ -18,7 +18,7 @@ void Front(struct Node** head, int data) {
     struct Node* newNode = newnode(data);
     newNode->next = *head;
     *head = newNode;
-}z
+}
 void Back(struct Node** head, int data) {
     struct Node* newNode = newnode(data);
     if (*head == NULL) {
@@ -67,7 +67,60 @@ void DeleteBack(struct Node** head) {
     free(temp->next);
     temp->next = NULL;
 }
-
+    void InsertBetween(struct Node** head, int data, int position) {
+        struct Node* newNode = newnode(data);
+        if (position == 1) {
+            newNode->next = *head;
+            *head = newNode;
+            return;
+        }
+    
+        struct Node* temp = *head;
+        for (int i = 1; i < position - 1 && temp != NULL; i++) {
+            temp = temp->next;
+        }
+    
+        if (temp == NULL) {
+            printf("Position out of range\n");
+            return;
+        }
+    
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+    
+    void DeleteBetween(struct Node** head, int position) {
+        if (*head == NULL) {
+            printf("List is empty. Nothing to delete.\n");
+            return;
+        }
+    
+        if (position == 1) {
+            struct Node* temp = *head;
+            *head = (*head)->next;
+            printf("Deleted element: %d\n", temp->data);
+            free(temp);
+            return;
+        }
+    
+        struct Node* temp = *head;
+        struct Node* prev = NULL;
+        
+        for (int i = 1; i < position && temp != NULL; i++) {
+            prev = temp;
+            temp = temp->next;
+        }
+    
+        if (temp == NULL) {
+            printf("Position out of range\n");
+            return;
+        }
+    
+        prev->next = temp->next;
+        printf("Deleted element: %d\n", temp->data);
+        free(temp);
+    }
+    
 void display(struct Node* head) {
     if (head == NULL) {
         printf("Empty List\n");
