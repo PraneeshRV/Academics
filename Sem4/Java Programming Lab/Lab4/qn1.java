@@ -9,7 +9,6 @@ class Vehicle {
         System.out.println("Type: " + type);
     }
 }
-
 class Car extends Vehicle {
     private String brand;
     
@@ -22,7 +21,6 @@ class Car extends Vehicle {
         System.out.println("Brand: " + brand);
     }
 }
-
 public class qn1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
