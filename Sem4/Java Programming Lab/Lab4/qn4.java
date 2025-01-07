@@ -27,8 +27,11 @@ class MontaneBike extends Bicycle {
 public class qn4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of gears:");
         int gears = sc.nextInt();
+        System.out.println("Enter speed:");
         int speed = sc.nextInt();
+        System.out.println("Enter seat height:");
         int seatHeight = sc.nextInt();
         
         MontaneBike mb = new MontaneBike(gears, speed, seatHeight);

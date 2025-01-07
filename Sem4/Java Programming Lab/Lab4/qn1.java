@@ -25,7 +25,9 @@ public class qn1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
+        System.out.print("Enter vehicle type: ");
         String type = scanner.nextLine();
+        System.out.print("Enter brand name: ");
         String brand = scanner.nextLine();
         
         Car car = new Car(type, brand);

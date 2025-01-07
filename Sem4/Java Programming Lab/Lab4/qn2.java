@@ -8,7 +8,6 @@ class Employee {
         salary = sal;
     }
 }
-
 class EmpLevel extends Employee {
     private int level;
     
@@ -26,11 +25,12 @@ class EmpLevel extends Employee {
         System.out.println(level);
     }
 }
-
 public class qn2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter employee ID:");
         int id = sc.nextInt();
+        System.out.println("Enter salary:");
         float salary = sc.nextFloat();
         
         EmpLevel emp = new EmpLevel(id, salary);

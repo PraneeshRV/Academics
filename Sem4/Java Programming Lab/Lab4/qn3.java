@@ -30,12 +30,14 @@ class User extends Account {
         return username;
     }
 }
-class Main {
+class qn3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of users:");
         int n = sc.nextInt();
         User[] users = new User[n];
         
+        System.out.println("Enter account number, balance and username for each user:");
         for(int i = 0; i < n; i++) {
             users[i] = new User();
             users[i].setAccountNumber(sc.nextInt());
@@ -43,6 +45,7 @@ class Main {
             users[i].setUsername(sc.next());
         }
         
+        System.out.println("Enter account number to search:");
         int searchAccNo = sc.nextInt();
         boolean found = false;
         
