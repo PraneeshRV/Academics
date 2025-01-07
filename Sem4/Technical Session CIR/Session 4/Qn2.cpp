@@ -13,7 +13,6 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, str);
     
-    // Extract only alphabets
     string alphabets = "";
     for(char c : str) {
         if(isAlphabet(c)) {
