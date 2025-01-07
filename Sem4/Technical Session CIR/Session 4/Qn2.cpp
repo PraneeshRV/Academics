@@ -27,6 +27,6 @@ int main() {
         }
     }
     
-    cout << "Sorted string (only alphabets): " << str << endl;
+    cout << "Sorted string: " << str << endl;
     return 0;
 }
