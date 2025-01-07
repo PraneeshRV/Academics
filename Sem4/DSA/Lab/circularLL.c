@@ -78,49 +78,6 @@ struct Node* deleteAtBeginning(struct Node* head) {
        free(temp);
        return head;
    }
-
-   
-   struct Node* insertAtMiddle(struct Node* head, int data, int position) {
-       if (position < 1) return head;
-       if (position == 1) return insertAtBeginning(head, data);
-       
-       struct Node* newNode = createNode(data);
-       struct Node* temp = head;
-       for (int i = 1; i < position - 1 && temp->next != head; i++) {
-           temp = temp->next;
-       }
-       newNode->next = temp->next;
-       temp->next = newNode;
-       return head;
-   }
-   
-   struct Node* deleteAtMiddle(struct Node* head, int position) {
-       if (head == NULL || position < 1) return head;
-       if (position == 1) {
-           struct Node* temp = head;
-           while (temp->next != head) {
-               temp = temp->next;
-           }
-           if (temp == head) {
-               free(head);
-               return NULL;
-           }
-           struct Node* newHead = head->next;
-           temp->next = newHead;
-           free(head);
-           return newHead;
-       }
-       
-       struct Node* temp = head;
-       struct Node* prev = NULL;
-       for (int i = 1; i < position && temp->next != head; i++) {
-           prev = temp;
-           temp = temp->next;
-       }
-       prev->next = temp->next;
-       free(temp);
-       return head;
-   }
    
    void displayList(struct Node* head) {
        if (head == NULL) return;
