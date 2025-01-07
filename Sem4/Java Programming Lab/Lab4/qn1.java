@@ -1,7 +1,6 @@
 import java.util.Scanner;
 class Vehicle {
     protected String type;
-    
     public Vehicle(String type) {
         this.type = type;
     }
@@ -34,7 +33,6 @@ public class qn1 {
         Car car = new Car(type, brand);
         car.displayType();
         car.displayBrand();
-        
         scanner.close();
     }
 }
