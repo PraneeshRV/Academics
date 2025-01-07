@@ -42,139 +42,118 @@
         newNode->next = head;
         return head;
     }
-
-    void deleteNode(struct Node** head, int key) {
-        if (*head == NULL) return;
-    
-        struct Node *curr = *head, *prev = NULL;
-        struct Node *temp = *head;
-    
-        while (curr->data != key) {
-            if (curr->next == *head) {
-                printf("Key not found\n");
-                return;
-            }
-            prev = curr;
-            curr = curr->next;
-        }
-    
-        if (curr->next == curr) {
-            *head = NULL;
-            free(curr);
-            return;
-        }
-    
-        if (curr == *head) {
-            prev = *head;
-            while (prev->next != *head) {
-                prev = prev->next;
-            }
-            *head = curr->next;
-            prev->next = *head;
-        } else {
-            prev->next = curr->next;
-        }
-        free(curr);
-    }
-
-    struct Node* insertAfter(struct Node* head, int data, int after) {
+struct Node* deleteAtBeginning(struct Node* head) {
         if (head == NULL) {
-            printf("List is empty\n");
-            return head;
+            return NULL;
         }
-    
-        struct Node* temp = head;
-        do {
-            if (temp->data == after) {
-                struct Node* newNode = createNode(data);
-                newNode->next = temp->next;
-                temp->next = newNode;
-                return head;
-            }
-            temp = temp->next;
-        } while (temp != head);
-    
-        printf("Node with value %d not found\n", after);
-        return head;
-    }
-
-    void deleteAfter(struct Node** head, int after) {
-        if (*head == NULL) {
-            printf("List is empty\n");
-            return;
-        }
-    
-        struct Node* temp = *head;
-        do {
-            if (temp->data == after) {
-                struct Node* toDelete = temp->next;
-                if (toDelete == *head) {
-                    *head = toDelete->next;
-                }
-                temp->next = toDelete->next;
-                free(toDelete);
-                return;
-            }
-            temp = temp->next;
-        } while (temp != *head);
-    
-        printf("Node with value %d not found\n", after);
-    }
-
-    void display(struct Node* head) {
-        if (head == NULL) {
-            printf("List is empty\n");
-            return;
+        if (head->next == head) {
+            free(head);
+            return NULL;
         }
         struct Node* temp = head;
-        do {
-            printf("%d -> ", temp->data);
+        while (temp->next != head) {
             temp = temp->next;
-        } while (temp != head);
-        printf("\n");
+        }
+        struct Node* newHead = head->next;
+        temp->next = newHead;
+        free(head);
+        return newHead;
     }
 
-    int main() {
-        struct Node* head = NULL;
-    
-        // Insert nodes
-        head = insertAtEnd(head, 10);
-        head = insertAtEnd(head, 20);
-        head = insertAtEnd(head, 30);
-        head = insertAtEnd(head, 40);
+   struct Node* deleteAtEnd(struct Node* head) {
+       if (head == NULL) {
+           return NULL;
+       }
+       if (head->next == head) {
+           free(head);
+           return NULL;
+       }
+       struct Node* temp = head;
+       struct Node* prev = NULL;
+       while (temp->next != head) {
+           prev = temp;
+           temp = temp->next;
+       }
+       prev->next = head;
+       free(temp);
+       return head;
+   }
 
-        // Display the list
-        printf("Initial list: ");
-        display(head);
-
-        // Delete a node
-        deleteNode(&head, 20);
-        printf("After deleting 20: ");
-        display(head);
-
-        // Insert more nodes
-        head = insertAtEnd(head, 50);
-        display(head);
-
-        // Insert after 30
-        head = insertAfter(head, 35, 30);
-        printf("After inserting 35 after 30: ");
-        display(head);
-
-        // Insert after 10
-        head = insertAfter(head, 15, 10);
-        printf("After inserting 15 after 10: ");
-        display(head);
-
-        // Delete node 35
-        deleteNode(&head, 35);
-        printf("After deleting 35: ");
-        display(head);
-
-        // Delete node 15
-        deleteNode(&head, 15);
-        printf("After deleting 15: ");
-        display(head);
-
-        return 0;
-    }
+   
+   struct Node* insertAtMiddle(struct Node* head, int data, int position) {
+       if (position < 1) return head;
+       if (position == 1) return insertAtBeginning(head, data);
+       
+       struct Node* newNode = createNode(data);
+       struct Node* temp = head;
+       for (int i = 1; i < position - 1 && temp->next != head; i++) {
+           temp = temp->next;
+       }
+       newNode->next = temp->next;
+       temp->next = newNode;
+       return head;
+   }
+   
+   struct Node* deleteAtMiddle(struct Node* head, int position) {
+       if (head == NULL || position < 1) return head;
+       if (position == 1) {
+           struct Node* temp = head;
+           while (temp->next != head) {
+               temp = temp->next;
+           }
+           if (temp == head) {
+               free(head);
+               return NULL;
+           }
+           struct Node* newHead = head->next;
+           temp->next = newHead;
+           free(head);
+           return newHead;
+       }
+       
+       struct Node* temp = head;
+       struct Node* prev = NULL;
+       for (int i = 1; i < position && temp->next != head; i++) {
+           prev = temp;
+           temp = temp->next;
+       }
+       prev->next = temp->next;
+       free(temp);
+       return head;
+   }
+   
+   void displayList(struct Node* head) {
+       if (head == NULL) return;
+       struct Node* temp = head;
+       do {
+           printf("%d -> ", temp->data);
+           temp = temp->next;
+       } while (temp != head);
+       printf("(head)\n");
+   }
+   
+   int main() {
+       struct Node* head = NULL;
+       
+       // Insert some elements
+       head = insertAtBeginning(head, 10);
+       head = insertAtEnd(head, 20);
+       head = insertAtEnd(head, 30);
+       head = insertAtMiddle(head, 15, 2);
+       
+       printf("Initial list: ");
+       displayList(head);
+       
+       // Delete from middle
+       head = deleteAtMiddle(head, 2);
+       printf("After deleting from middle: ");
+       displayList(head);
+       
+       // Delete from end
+       head = deleteAtEnd(head);
+       printf("After deleting from end: ");
+       displayList(head);
+       
+       return 0;
+   }
+   
