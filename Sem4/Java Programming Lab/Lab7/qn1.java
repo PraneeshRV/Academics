@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class qn1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,7 +9,6 @@ public class qn1 {
         String result = removeConsecutiveVowels(input);
         System.out.println("Output: " + result);
     }
-
     private static String removeConsecutiveVowels(String str) {
         StringBuilder sb = new StringBuilder();
         char[] vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
@@ -30,7 +28,6 @@ public class qn1 {
             }
             lastWasVowel = isVowel;
         }
-
         return sb.toString();
     }
 }
