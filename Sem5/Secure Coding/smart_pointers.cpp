@@ -8,4 +8,5 @@ struct B;
 struct A
 {
     std::shared_ptr<B> b;
+    -A(){std:cout <<"-A()"}
 }
