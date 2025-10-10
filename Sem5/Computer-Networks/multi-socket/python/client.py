@@ -33,6 +33,7 @@ key = int(input())
 s.send(str(key).encode())
 print("Connected to server.\nType 'Exit' to quit.\n")
 
+# Start thread for receiving messages
 recv_thread = threading.Thread(target=receive_messages, args=(s, key), daemon=True)
 recv_thread.start()
 

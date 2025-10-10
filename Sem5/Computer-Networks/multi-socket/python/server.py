@@ -32,6 +32,7 @@ key2=int(c2.recv(1024).decode())
 print(f"Client1 key={key1}, Client2 key={key2}")
 
 while True:
+    # ---- Client1 to Client2 ----
     data=c1.recv(1024).decode()
     if not data or data=="Exit":
         c2.send("Exit".encode())
