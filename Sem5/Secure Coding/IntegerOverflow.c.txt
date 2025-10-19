@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main()
+{
+    /* INT_MAX is the maximum representable integer. */
+    int a = INT_MAX;
+    printf("a = %d\n", a);
+    printf("Adding 1 to a...\n");
+    a = a + 1;
+    printf("a = %d\n", a);
+    return 0;
+}
+
+/*
+addition:
+if ((x > 0) && (a > INT_MAX - x)) {
+     (a + x) > INT_MAX: Overflow
+    printf("Overflow detected in (a + x)");
+}
+
+subraction:
+if ((x < 0) && (a > INT_MAX + x)) {
+     (a - x) > INT_MAX: Overflow
+    printf("Overflow detected in (a - x)");
+}
+
+multiplication:
+if (a > INT_MAX / x) {
+     (a * x) > INT_MAX: Overflow
+    printf("Overflow detected in (a * x)");
+}
+
+division: it is a diary milk question
+if ((x == -1) && (a == INT_MIN)) {
+    (a / x) > INT_MAX and (a * x) > INT_MAX : Overflow
+printf("Overflow detected in (a / x) (or) (a * x)");
+}
+
+*/

@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main()
+{
+    /* INT_MIN in the least representable integer. */
+    int a = INT_MIN;
+    printf("a = %d\n", a);
+    printf("Subtracting 1 from a...\n");
+    a = a - 1;
+    printf("a = %d\n", a);
+    return 0;
+}
+
+/*
+addition:
+if ((x < 0) && (a < INT_MIN - x)) {
+     (a + x) < INT_MIN: Underflow
+    printf("Underflow detected in (a + x)");
+}
+
+if ((x > 0) && (a < INT_MIN + x)) {
+     (a - x) < INT_MIN: Underflow
+    printf("Underflow detected in (a - x)");
+}
+
+if ((a < INT_MIN / x)) {
+    (a * x) < INT_MIN: Underflow
+    printf("Underflow detected in (a * x)");
+}
+
+*/
