@@ -1,0 +1,1 @@
+palin a = a == reverse a
