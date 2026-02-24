@@ -1,4 +1,4 @@
-201,Pen,10.5,40
-202,Notebook,25,26
+201,Pen,10.5,35
+202,Notebook,25,24
 203,Eraser,5,100
 204,Pencil,3,0

@@ -1,0 +1,3 @@
+Line: 'bad_format_line' | Error: Invalid Format: Line should have 4 parts separated by '|', found 1
+Line: '2026-02-18 18:50|192.168.1.9|INVALID_ACTION|fail' | Error: Unknown Action: INVALID_ACTION
+Line: '2026-02-18 18:55|192.168.1.10|LOGIN|UNKNOWN_STATUS' | Error: Unknown Status: UNKNOWN_STATUS
