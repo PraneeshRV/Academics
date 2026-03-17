@@ -1,0 +1,4 @@
+Victim IP: 192.168.56.105
+Reflector IP: 192.168.56.106
+Attacker IP: 192.168.56.1
+

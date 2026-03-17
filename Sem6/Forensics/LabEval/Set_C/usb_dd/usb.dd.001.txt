@@ -1,0 +1,45 @@
+﻿Created By AccessData® FTK® Imager 4.5.0.3 
+
+Case Information: 
+Acquired using: ADI4.5.0.3
+Case Number: case 001
+Evidence Number: USB 128M
+Unique description: The image is acquired from a UBS
+Examiner: Frank
+Notes: For classroom demo
+
+--------------------------------------------------------------
+
+Information for I:\usb.dd:
+
+Physical Evidentiary Item (Source) Information:
+[Device Info]
+ Source Type: Physical
+[Drive Geometry]
+ Cylinders: 15
+ Tracks per Cylinder: 255
+ Sectors per Track: 63
+ Bytes per Sector: 512
+ Sector Count: 243,712
+[Physical Drive Information]
+ Drive Model: General UDisk USB Device
+ Drive Serial Number: 	
+ Drive Interface Type: USB
+ Removable drive: True
+ Source data size: 119 MB
+ Sector count:    243712
+[Computed Hashes]
+ MD5 checksum:    0adce985af5dd1e0d3595a50a5a9a427
+ SHA1 checksum:   0c182de4fdd5eb7ac6f5d13e1fa1d5877019ba94
+
+Image Information:
+ Acquisition started:   Mon Mar  6 17:48:07 2023
+ Acquisition finished:  Mon Mar  6 17:48:22 2023
+ Segment list:
+  I:\usb.dd.001
+
+Image Verification Results:
+ Verification started:  Mon Mar  6 17:48:23 2023
+ Verification finished: Mon Mar  6 17:48:23 2023
+ MD5 checksum:    0adce985af5dd1e0d3595a50a5a9a427 : verified
+ SHA1 checksum:   0c182de4fdd5eb7ac6f5d13e1fa1d5877019ba94 : verified

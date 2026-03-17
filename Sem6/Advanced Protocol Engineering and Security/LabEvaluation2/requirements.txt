@@ -1,0 +1,4 @@
+# Operating System: Arch Linux (Attacker), Kali Linux (Victim/Reflector)
+# Python Version: Python 3.14
+# Network: VirtualBox Host-Only Adapter (192.168.56.0/24)
+scapy==2.5.0

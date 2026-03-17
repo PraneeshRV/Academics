@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dfxml xmloutputversion='1.0'>
+  <metadata 
+  xmlns='http://www.forensicswiki.org/wiki/Category:Digital_Forensics_XML' 
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <dc:type>Carve Report</dc:type>
+  </metadata>
+  <creator>
+    <package>PhotoRec</package>
+    <version>7.2</version>
+    <build_environment>
+      <compiler>GCC 14.2</compiler>
+      <library name='libext2fs' version='1.47.3'/>
+      <library name='libewf' version='none'/>
+      <library name='libjpeg' version='libjpeg-turbo-3.0.4'/>
+      <library name='libntfs' version='libntfs-3g'/>
+      <library name='zlib' version='1.3.1'/>
+    </build_environment>
+    <execution_environment>
+      <os_sysname>Linux</os_sysname>
+      <os_release>6.18.13-arch1-1</os_release>
+      <os_version>#1 SMP PREEMPT_DYNAMIC Wed, 25 Feb 2026 23:12:35 +0000</os_version>
+      <host>ShadowEternity</host>
+      <arch>x86_64</arch>
+      <uid>1000</uid>
+      <start_time>2026-03-09T15:09:55+0530</start_time>
+    </execution_environment>
+  </creator>
+  <source>
+    <image_filename>7-ntfs-undel.dd</image_filename>
+    <sectorsize>512</sectorsize>
+    <image_size>6160384</image_size>
+    <volume>
+      <byte_runs>
+        <byte_run offset='0' img_offset='0' len='6160384'/>
+      </byte_runs>
+      <block_size>1024</block_size>
+    </volume>
+  </source>
+  <configuration>
+  </configuration>
+</dfxml>

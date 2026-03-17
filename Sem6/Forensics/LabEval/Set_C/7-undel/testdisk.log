@@ -1,0 +1,34 @@
+
+
+Mon Mar  9 15:13:45 2026
+Command line: TestDisk
+
+TestDisk 7.2, Data Recovery Utility, February 2024
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 6.18.13-arch1-1 (#1 SMP PREEMPT_DYNAMIC Wed, 25 Feb 2026 23:12:35 +0000) x86_64
+Compiler: GCC 14.2
+ext2fs lib: 1.47.3, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.5
+User is not root!
+Hard disk list
+
+
+TestDisk exited normally.
+Using locale 'en_US.UTF-8'.
+
+
+Mon Mar  9 15:13:45 2026
+Command line: TestDisk /debug
+
+TestDisk 7.2, Data Recovery Utility, February 2024
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 6.18.13-arch1-1 (#1 SMP PREEMPT_DYNAMIC Wed, 25 Feb 2026 23:12:35 +0000) x86_64
+Compiler: GCC 14.2
+ext2fs lib: 1.47.3, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.5
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/nvme0n1 - 512 GB / 476 GiB - CHS 488386 64 32, sector size=512 - INTEL SSDPEKNU512GZ, S/N:BTKA31711NDK512A
+
+
+TestDisk exited normally.
