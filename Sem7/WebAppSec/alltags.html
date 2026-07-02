@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete HTML5 Tag Registry</title>
+    <base href="https://example.com" target="_blank">
+    <link rel="stylesheet" href="styles.css">
+    <style>body { font-family: sans-serif; padding: 20px; } custom-element { color: rebeccapurple; }</style>
+    <script src="script.js" defer></script>
+    <noscript>JavaScript is disabled.</noscript>
+</head>
+<body>
+    <header><nav><a href="#content">Nav</a></nav><h1>Title</h1></header>
+    <main id="content">
+        <section>
+            <h2>Sections</h2>
+            <article>Article</article>
+            <aside>Aside</aside>
+            <hgroup><h1>Heading</h1><p>Subtitle</p></hgroup>
+        </section>
+        <section>
+            <h2>Content</h2>
+            <p><b>b</b>, <strong>strong</strong>, <i>i</i>, <em>em</em>, <mark>mark</mark>, <small>small</small>, <del>del</del>, <ins>ins</ins>, <sub>sub</sub>, <sup>sup</sup>, <q>q</q>, <cite>cite</cite>, <dfn>dfn</dfn>, <abbr title="abbr">abbr</abbr>, <data value="1">data</data>, <time>time</time>, <code>code</code>, <var>var</var>, <samp>samp</samp>, <kbd>kbd</kbd>, <u>u</u>, <s>s</s>.</p>
+            <blockquote>Blockquote</blockquote>
+            <pre>Preformatted</pre>
+            <address>Address</address>
+        </section>
+        <section>
+            <h2>Lists/Details</h2>
+            <ul><li>UL</li></ul>
+            <ol><li>OL</li></ol>
+            <dl><dt>DT</dt><dd>DD</dd></dl>
+            <details><summary>Summary</summary>Details Content</details>
+        </section>
+        <section>
+            <h2>Media/Embedded</h2>
+            <picture><img src="img.jpg" alt="img" width="100" height="100" loading="lazy"></picture>
+            <figure><figcaption>Figure</figcaption></figure>
+            <audio controls><source src="audio.mp3"></audio>
+            <video controls><source src="video.mp4"><track src="v.vtt"></video>
+            <iframe title="frame"></iframe>
+            <embed src="file.swf"><object data="file.swf"></object>
+            <svg><circle cx="5" cy="5" r="4" /></svg>
+            <math><mrow><msup><mi>a</mi><mn>2</mn></msup></mrow></math>
+            <map name="map"><area shape="rect" coords="0,0,1,1" href="#"></map>
+        </section>
+        <section>
+            <h2>Table</h2>
+            <table>
+                <caption>Caption</caption>
+                <colgroup><col></colgroup>
+                <thead><tr><th>H</th></tr></thead>
+                <tbody><tr><td>D</td></tr></tbody>
+                <tfoot><tr><td>F</td></tr></tfoot>
+            </table>
+        </section>
+        <section>
+            <h2>Forms</h2>
+            <form>
+                <fieldset><legend>Legend</legend>
+                <label>Text:<input type="text"></label>
+                <input list="list"><datalist id="list"><option value="opt"></datalist>
+                <select><optgroup><option>opt</option></optgroup></select>
+                <textarea></textarea>
+                <progress></progress><meter></meter>
+                <output></output><button>Btn</button>
+                </fieldset>
+            </form>
+        </section>
+        <section>
+            <h2>Interactive/Misc</h2>
+            <dialog open>Dialog</dialog>
+            <template><div></div></template>
+            <br>
+            <hr>
+            <wbr>
+            <span>Span</span>
+            <bdo dir="rtl">RTL</bdo>
+            <bdi>BDI</bdi>
+            <custom-element></custom-element>
+        </section>
+    </main>
+    <footer>Footer</footer>
+</body>
+</html>

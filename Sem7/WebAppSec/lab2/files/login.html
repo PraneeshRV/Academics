@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier — Sign in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,300..700,0..1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1C1B19;
+    --paper: #F2EDE4;
+    --safelight: #8B3A2F;
+    --safelight-bright: #C2543F;
+    --stone: #6B6557;
+    --surface: #3A3835;
+    --hairline: #D4C9B0;
+    --hairline-dark: #4A4742;
+    --ok: #5E7A5E;
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ margin:0; padding:0; }
+
+  body{
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--paper);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  .stage{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ---------- LEFT: filmstrip darkroom column ---------- */
+  .filmstrip{
+    position: relative;
+    background: linear-gradient(180deg, #15140F 0%, #1C1B19 50%, #15140F 100%);
+    border-right: 1px solid var(--hairline-dark);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 0;
+  }
+
+  .filmstrip::before,
+  .filmstrip::after{
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 26px;
+    background-image: radial-gradient(circle, #0E0D0B 5.5px, transparent 5.6px);
+    background-size: 26px 34px;
+    background-position: center 14px;
+    opacity: 0.9;
+  }
+  .filmstrip::before{ left: 6px; }
+  .filmstrip::after{ right: 6px; }
+
+  .frames{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 2;
+    margin-top: 8px;
+  }
+
+  .frame{
+    width: 138px;
+    height: 96px;
+    border-radius: 2px;
+    position: relative;
+    background: #100F0D;
+    border: 1px solid rgba(212,201,176,0.18);
+    overflow: hidden;
+  }
+
+  .frame .glow{
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, var(--safelight) 0%, rgba(139,58,47,0.18) 55%, transparent 80%);
+    mix-blend-mode: screen;
+    animation: flicker 6.5s ease-in-out infinite;
+  }
+  .frame:nth-child(2) .glow{ animation-delay: -1.8s; }
+  .frame:nth-child(3) .glow{ animation-delay: -3.6s; }
+  .frame:nth-child(4) .glow{ animation-delay: -5.1s; }
+
+  .frame svg{ position:absolute; inset:0; width:100%; height:100%; opacity:0.85; }
+
+  @keyframes flicker{
+    0%, 100% { opacity: 0.55; }
+    45% { opacity: 0.85; }
+    50% { opacity: 0.6; }
+    72% { opacity: 0.95; }
+  }
+
+  .frame-label{
+    position: absolute;
+    bottom: 4px;
+    left: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    color: rgba(242,237,228,0.55);
+    z-index: 3;
+  }
+
+  .roll-id{
+    margin-top: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--stone);
+    letter-spacing: 0.12em;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding-top: 20px;
+  }
+
+  /* ---------- RIGHT: paper panel ---------- */
+  .panel{
+    background: var(--paper);
+    color: #1C1B19;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    position: relative;
+  }
+
+  .panel::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(28,27,25,0.035) 1px, transparent 0);
+    background-size: 18px 18px;
+    pointer-events: none;
+  }
+
+  .card{
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--safelight);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before{
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--safelight);
+    box-shadow: 0 0 0 3px rgba(139,58,47,0.18);
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 480;
+    font-style: normal;
+    font-size: 42px;
+    line-height: 1.05;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .sub{
+    font-size: 15px;
+    color: var(--stone);
+    margin: 0 0 36px;
+    line-height: 1.5;
+    max-width: 320px;
+  }
+
+  form{ display: flex; flex-direction: column; gap: 18px; }
+
+  .field{ display: flex; flex-direction: column; gap: 7px; }
+
+  label{
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #1C1B19;
+  }
+
+  .input-wrap{ position: relative; }
+
+  input[type="email"],
+  input[type="password"]{
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 13px 14px;
+    border: 1.5px solid #D9CFBC;
+    border-radius: 7px;
+    background: #FBF9F4;
+    color: #1C1B19;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  input::placeholder{ color: #A89E8C; }
+
+  input:focus{
+    outline: none;
+    border-color: var(--safelight);
+    box-shadow: 0 0 0 3.5px rgba(139,58,47,0.13);
+  }
+
+  input:focus-visible{
+    outline: 2px solid var(--safelight);
+    outline-offset: 1px;
+  }
+
+  .row-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toggle-pw{
+    background: none;
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    cursor: pointer;
+    padding: 2px;
+    letter-spacing: 0.02em;
+  }
+  .toggle-pw:hover{ color: var(--safelight); }
+  .toggle-pw:focus-visible{ outline: 2px solid var(--safelight); outline-offset: 2px; border-radius: 3px; }
+
+  .remember{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--stone);
+  }
+
+  .remember input[type="checkbox"]{
+    width: 15px; height: 15px;
+    accent-color: var(--safelight);
+    cursor: pointer;
+  }
+
+  a.link{
+    color: var(--safelight);
+    font-size: 13.5px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  a.link:hover{ border-bottom-color: var(--safelight); }
+  a.link:focus-visible{ outline: 2px solid var(--safelight); outline-offset: 2px; }
+
+  button.submit{
+    margin-top: 8px;
+    background: var(--bg);
+    color: var(--paper);
+    border: none;
+    border-radius: 7px;
+    padding: 14px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    transition: background 0.18s ease, transform 0.1s ease;
+  }
+
+  button.submit:hover{ background: var(--safelight); }
+  button.submit:active{ transform: translateY(1px); }
+  button.submit:focus-visible{ outline: 2px solid var(--bg); outline-offset: 2px; }
+
+  button.submit svg{ transition: transform 0.18s ease; }
+  button.submit:hover svg{ transform: translateX(3px); }
+
+  .divider{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 22px;
+    color: #B8AE99;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+  }
+  .divider::before, .divider::after{
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #DDD3C0;
+  }
+
+  .footer-row{
+    margin-top: 28px;
+    font-size: 13.5px;
+    color: var(--stone);
+    text-align: center;
+  }
+
+  .error-banner{
+    display: none;
+    align-items: flex-start;
+    gap: 9px;
+    background: rgba(139,58,47,0.08);
+    border: 1px solid rgba(139,58,47,0.3);
+    color: #6E2C22;
+    padding: 11px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .error-banner.show{ display: flex; }
+  .error-banner svg{ flex-shrink: 0; margin-top: 1px; }
+
+  /* small badge top-right of panel for brand mark, quiet */
+  .brandmark{
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    color: #B8AE99;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 760px){
+    .stage{ grid-template-columns: 1fr; }
+    .filmstrip{
+      flex-direction: row;
+      padding: 14px 0;
+      overflow-x: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--hairline-dark);
+    }
+    .filmstrip::before, .filmstrip::after{
+      width: 100%; height: 22px; top: 0; left:0; right:auto; bottom:auto;
+      background-size: 34px 22px;
+      background-position: 14px center;
+    }
+    .filmstrip::after{ top: auto; bottom: 0; }
+    .frames{ flex-direction: row; margin-top: 0; gap: 10px; padding: 0 16px; }
+    .frame{ width: 92px; height: 64px; flex-shrink: 0; }
+    .roll-id{ display: none; }
+    .panel{ padding: 64px 24px 40px; }
+    h1{ font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- Signature element: glowing contact-sheet filmstrip -->
+  <div class="filmstrip" aria-hidden="true">
+    <div class="frames">
+      <div class="frame">
+        <svg viewBox="0 0 138 96"><polyline points="0,70 25,40 45,55 70,20 95,48 138,30" stroke="#5A4F44" stroke-width="2" fill="none" opacity="0.5"/></svg>
+        <div class="glow"></div>
+        <span class="frame-label">f/2.8 — 1/125</span>
+      </div>
+      <div class="frame">
+        <svg viewBox="0 0 138 96"><circle cx="40" cy="40" r="18" stroke="#5A4F44" stroke-width="2" fill="none" opacity="0.5"/><line x1="65" y1="20" x2="120" y2="75" stroke="#5A4F44" stroke-width="2" opacity="0.5"/></svg>
+        <div class="glow"></div>
+        <span class="frame-label">iso 400</span>
+      </div>
+      <div class="frame">
+        <svg viewBox="0 0 138 96"><rect x="20" y="20" width="50" height="50" stroke="#5A4F44" stroke-width="2" fill="none" opacity="0.5" transform="rotate(12 45 45)"/></svg>
+        <div class="glow"></div>
+        <span class="frame-label">dev 6:30</span>
+      </div>
+      <div class="frame">
+        <svg viewBox="0 0 138 96"><polyline points="10,80 40,30 60,60 90,15 130,50" stroke="#5A4F44" stroke-width="2" fill="none" opacity="0.5"/></svg>
+        <div class="glow"></div>
+        <span class="frame-label">roll 14/24</span>
+      </div>
+    </div>
+    <div class="roll-id">ATELIER · ROLL №228 · ESTD 2019</div>
+  </div>
+
+  <!-- Sign-in panel -->
+  <div class="panel">
+    <span class="brandmark">Atelier</span>
+    <div class="card">
+      <p class="eyebrow">Darkroom access</p>
+      <h1>Sign in to<br>your roll.</h1>
+      <p class="sub">Pick up the development log where you left it — frames, stops, and notes, all in one place.</p>
+
+      <div class="error-banner" id="errorBanner">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#8B3A2F" stroke-width="1.4"/><path d="M8 4.5V9" stroke="#8B3A2F" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11.2" r="0.9" fill="#8B3A2F"/></svg>
+        <span id="errorText">That email and password don't match. Check for a typo and try again.</span>
+      </div>
+
+      <form id="loginForm" action="login.php" method="POST" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <div class="input-wrap">
+            <input type="email" id="email" name="email" placeholder="you@studio.com" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="row-between">
+            <label for="password">Password</label>
+            <button type="button" class="toggle-pw" id="togglePw">show</button>
+          </div>
+          <div class="input-wrap">
+            <input type="password" id="password" name="password" placeholder="••••••••••" autocomplete="current-password" required>
+          </div>
+        </div>
+
+        <div class="row-between" style="margin-top: -2px;">
+          <label class="remember">
+            <input type="checkbox" id="remember">
+            Keep me signed in
+          </label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="submit">
+          Continue to your roll
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+
+      <div class="divider">OR</div>
+
+      <button type="button" class="submit" style="background:#FBF9F4; color:#1C1B19; border:1.5px solid #D9CFBC;" onmouseover="this.style.background='#F3EEE3'" onmouseout="this.style.background='#FBF9F4'">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 4.5L14 4" stroke="#6B6557" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#6B6557" stroke-width="1.4"/></svg>
+        Send me a sign-in link
+      </button>
+
+      <p class="footer-row">New to Atelier? <a href="#" class="link">Start your first roll</a></p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const togglePw = document.getElementById('togglePw');
+  const pwInput = document.getElementById('password');
+  togglePw.addEventListener('click', () => {
+    const isPw = pwInput.type === 'password';
+    pwInput.type = isPw ? 'text' : 'password';
+    togglePw.textContent = isPw ? 'hide' : 'show';
+  });
+
+  const form = document.getElementById('loginForm');
+  const errorBanner = document.getElementById('errorBanner');
+  const errorText = document.getElementById('errorText');
+  const submitBtn = form.querySelector('button.submit');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorBanner.classList.remove('show');
+    submitBtn.disabled = true;
+    const originalLabel = submitBtn.innerHTML;
+    submitBtn.textContent = 'Checking…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await res.json();
+
+      if (data.ok) {
+        window.location.href = data.redirect || '/dashboard.php';
+      } else {
+        errorText.textContent = data.error || 'Something went wrong. Please try again.';
+        errorBanner.classList.add('show');
+      }
+    } catch (err) {
+      errorText.textContent = 'Could not reach the server. Check your connection and try again.';
+      errorBanner.classList.add('show');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalLabel;
+    }
+  });
+
+  // Hide error as soon as the person edits either field again
+  ['email','password'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      errorBanner.classList.remove('show');
+    });
+  });
+</script>
+
+</body>
+</html>
