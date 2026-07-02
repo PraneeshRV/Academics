@@ -10,7 +10,6 @@ RUN apt-get update && \
     apt-get install -y curl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
 # Environment Variables
 ENV APP_ENV=production
 ENV APP_PORT=8000
