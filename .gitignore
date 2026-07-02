@@ -1,0 +1,10 @@
+# Ignore large forensic dd image
+Sem6/Forensics/LabEval/Set_C/usb_dd/
+Sem6/Forensics/LabEval/Set_C/usb_dd/usb.dd.*
+
+# Local Python runtime artifacts
+**/.venv/
+**/__pycache__/
+*.pyc
+*.pyo
+*.part
