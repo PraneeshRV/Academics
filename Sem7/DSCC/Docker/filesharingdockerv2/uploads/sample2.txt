@@ -1,0 +1,1 @@
+This is sample2.txt - a placeholder file for the internal file-sharing service demo.
