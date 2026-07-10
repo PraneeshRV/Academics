@@ -1,0 +1,9 @@
+services:
+  logger:
+    build: .
+    container_name: logger-container
+    volumes:
+      - logger_data:/data   # named volume: persists log.txt beyond container lifecycle
+
+volumes:
+  logger_data:

@@ -22,7 +22,7 @@ WORKDIR /app
 COPY server.py .
 COPY requirements.txt .
 COPY config.json .
-COPY README.md .
+COPY README.md .z
 COPY uploads/ ./uploads/
 
 # Install Python dependencies
