@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS grade_system;
+
+USE grade_system;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO users (username, password) VALUES ('123', '$2y$12$3Q0YiFn/fnis/PWBbRI56u0OFZyEI2laTVXFMGW5HPSq677HklfYW');
+
+CREATE USER IF NOT EXISTS 'grade_app'@'localhost' IDENTIFIED BY 'GXfDCnkAuR70piN6lS43VId';
+GRANT SELECT, INSERT, UPDATE, DELETE ON grade_system.* TO 'grade_app'@'localhost';
+FLUSH PRIVILEGES;

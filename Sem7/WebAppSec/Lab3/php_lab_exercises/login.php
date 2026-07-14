@@ -1,52 +1,27 @@
 <?php
-session_start();
-
-if(isset($_POST["login"]))
-{
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    // Simple hardcoded login check for learning purposes
-    if($username === "admin" && $password === "1234")
-    {
-        $_SESSION["username"] = $username;
-        header("Location: dashboard.php");
-        exit();
-    }
-    else
-    {
-        $error = "Invalid username or password";
-    }
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
 }
-?>
+require 'db.php';
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-
-<h2>Login Form</h2>
-
-<?php
-if(isset($error))
-{
-    echo "<p style='color:red;'>$error</p>";
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: loginform.php');
+    exit();
 }
-?>
 
-<form method="post">
-    Username:
-    <input type="text" name="username">
-    <br><br>
+$username = trim($_POST['username'] ?? '');
+$password = $_POST['password'] ?? '';
 
-    Password:
-    <input type="password" name="password">
-    <br><br>
+$stmt = $pdo->prepare('SELECT * FROM users WHERE username = ?');
+$stmt->execute([$username]);
+$user = $stmt->fetch();
 
-    <input type="submit" name="login" value="Login">
-</form>
+if ($user && password_verify($password, $user['password'])) {
+    $_SESSION['username'] = $user['username'];
+    setcookie('username', $user['username'], time() + 7 * 24 * 60 * 60, '/');
+    header('Location: welcome.php');
+    exit();
+}
 
-</body>
-</html>
+header('Location: loginform.php?error=' . urlencode('Invalid username or password'));
+exit();

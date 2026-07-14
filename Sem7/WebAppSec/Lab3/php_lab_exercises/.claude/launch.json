@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "grade-system-php",
+      "runtimeExecutable": "php",
+      "runtimeArgs": ["-S", "localhost:8000", "-t", "/home/praneesh/Praneesh/Academics/Sem7/WebAppSec/Lab3/php_lab_exercises"],
+      "port": 8000
+    }
+  ]
+}
