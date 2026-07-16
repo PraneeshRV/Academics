@@ -1,0 +1,19 @@
+FROM python:3.12-slim
+LABEL maintainer="praneeshrv404@gmail.com"
+LABEL description="Database connector"
+
+ENV DB_HOST=localhost \
+    DB_PORT=5432 \
+    DB_USER=admin \
+    DB_PASSWORD=secret \
+    DB_NAME=mydb
+    
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
+
+EXPOSE 8080
+
+CMD ["python", "app.py"]
