@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Activity 2: schema for students.xml with value restrictions.
+    - semester must be an integer between 1 and 8
+    - cgpa must be a decimal between 0 and 10
+  Extra restrictions kept for data integrity:
+    - registerNumber must match the pattern CB + 5 digits
+    - department must be one of the known department codes
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- ===== Simple types (the actual validation rules) ===== -->
+
+    <xs:simpleType name="registerNumberType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="CB[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="nameType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="60"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="departmentType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CSE"/>
+            <xs:enumeration value="IT"/>
+            <xs:enumeration value="ECE"/>
+            <xs:enumeration value="EEE"/>
+            <xs:enumeration value="MECH"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- semester: 1 <= value <= 8 -->
+    <xs:simpleType name="semesterType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- cgpa: 0 <= value <= 10, at most 2 digits after the decimal point -->
+    <xs:simpleType name="cgpaType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- ===== Structure ===== -->
+
+    <xs:element name="students">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="registerNumber" type="registerNumberType"/>
+                            <xs:element name="name"           type="nameType"/>
+                            <xs:element name="department"     type="departmentType"/>
+                            <xs:element name="semester"       type="semesterType"/>
+                            <xs:element name="cgpa"           type="cgpaType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- register number must be unique across the document -->
+        <xs:unique name="uniqueRegisterNumber">
+            <xs:selector xpath="student"/>
+            <xs:field xpath="registerNumber"/>
+        </xs:unique>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Challenge — Student Information Viewer</title>
+<style>
+    :root   { color-scheme: light; }
+    body   { font-family: Arial, Helvetica, sans-serif; margin: 2rem;
+             background: #fff; color: #111; }
+    table  { border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #666; padding: 6px 12px; text-align: left; }
+    th     { background: #eee; }
+    .error { color: #b00; font-weight: bold; }
+    .muted { color: #555; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<h2>Student Information Viewer</h2>
+<p class="muted">
+    students.xml &rarr; validated against students.xsd &rarr; read with
+    simplexml_load_file() &rarr; json_encode() &rarr; Fetch API &rarr; table below.
+    The page is never reloaded.
+</p>
+
+<button onclick="loadStudents()">Load Students</button>
+
+<div id="output"></div>
+
+<script>
+const COLUMNS = [
+    ["registerNumber", "Register No"],
+    ["name",           "Name"],
+    ["department",     "Department"],
+    ["semester",       "Semester"],
+    ["cgpa",           "CGPA"]
+];
+
+function loadStudents() {
+
+    const output = document.getElementById("output");
+    output.textContent = "Loading...";
+
+    fetch("students_from_xml.php")
+
+        .then(response => {
+            // fetch() resolves even for 404 / 500, so check the status.
+            if (!response.ok) {
+                // The PHP script sends a JSON error body with its 500.
+                return response.json()
+                    .catch(() => { throw new Error("HTTP " + response.status); })
+                    .then(body => { throw new Error(body.error || ("HTTP " + response.status)); });
+            }
+            return response.json();
+        })
+
+        .then(students => render(students))
+
+        .catch(error => {
+            output.textContent = "";
+            const p = document.createElement("p");
+            p.className = "error";
+            p.textContent = "Unable to retrieve student data: " + error.message;
+            output.appendChild(p);
+            console.error(error);
+        });
+}
+
+/*
+ * The table is built with createElement/textContent instead of innerHTML.
+ * Server data placed into innerHTML is a stored-XSS sink: a student name of
+ * <img src=x onerror=alert(1)> would execute. textContent inserts it as text.
+ */
+function render(students) {
+
+    const table = document.createElement("table");
+
+    const headRow = table.insertRow();
+    COLUMNS.forEach(([, label]) => {
+        const th = document.createElement("th");
+        th.textContent = label;
+        headRow.appendChild(th);
+    });
+
+    students.forEach(student => {
+        const row = table.insertRow();
+        COLUMNS.forEach(([key]) => {
+            row.insertCell().textContent = student[key];
+        });
+    });
+
+    const output = document.getElementById("output");
+    output.textContent = "";
+    output.appendChild(table);
+
+    const count = document.createElement("p");
+    count.className = "muted";
+    count.textContent = students.length + " student record(s) loaded.";
+    output.appendChild(count);
+}
+</script>
+
+</body>
+</html>

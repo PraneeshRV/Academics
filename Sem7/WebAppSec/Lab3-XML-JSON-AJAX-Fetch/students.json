@@ -1,0 +1,37 @@
+[
+  {
+    "registerNumber": "CB22001",
+    "name": "Alice Akash",
+    "department": "CSE",
+    "semester": 5,
+    "cgpa": 8.92
+  },
+  {
+    "registerNumber": "CB22002",
+    "name": "Dinesh Kumar",
+    "department": "CSE",
+    "semester": 5,
+    "cgpa": 9.14
+  },
+  {
+    "registerNumber": "CB22003",
+    "name": "Varun S",
+    "department": "IT",
+    "semester": 6,
+    "cgpa": 8.45
+  },
+  {
+    "registerNumber": "CB22004",
+    "name": "Karthik G",
+    "department": "ECE",
+    "semester": 7,
+    "cgpa": 7.86
+  },
+  {
+    "registerNumber": "CB22005",
+    "name": "Varunn Nair",
+    "department": "CSE",
+    "semester": 5,
+    "cgpa": 9.35
+  }
+]

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Activity 4 — AJAX (XMLHttpRequest)</title>
+<style>
+    :root { color-scheme: light; }
+    body  { font-family: Arial, Helvetica, sans-serif; margin: 2rem;
+            background: #fff; color: #111; }
+    table { border-collapse: collapse; margin-top: 1rem; }
+    th, td{ border: 1px solid #666; padding: 6px 12px; text-align: left; }
+    th    { background: #eee; }
+    .error{ color: #b00; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>Activity 4 — Student list loaded with AJAX (XMLHttpRequest)</h2>
+
+<button onclick="loadStudents()">Load Students</button>
+
+<div id="output"></div>
+
+<script>
+function loadStudents() {
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "students.php", true);
+
+    xhr.onload = function () {
+
+        // A response arrived, but it may still be a 404 or a 500.
+        if (xhr.status !== 200) {
+            showError("Server responded with status " + xhr.status + ".");
+            return;
+        }
+
+        var students = JSON.parse(xhr.responseText);
+
+        var table = "<table>";
+        table += "<tr><th>Register No</th><th>Name</th><th>Department</th>" +
+                 "<th>Semester</th><th>CGPA</th></tr>";
+
+        for (var i = 0; i < students.length; i++) {
+            var s = students[i];
+            table += "<tr>";
+            table += "<td>" + s.registerNumber + "</td>";
+            table += "<td>" + s.name + "</td>";
+            table += "<td>" + s.department + "</td>";
+            table += "<td>" + s.semester + "</td>";
+            table += "<td>" + s.cgpa + "</td>";
+            table += "</tr>";
+        }
+
+        table += "</table>";
+
+        document.getElementById("output").innerHTML = table;
+    };
+
+    // Fires when the request never reaches the server at all.
+    xhr.onerror = function () {
+        showError("Unable to reach the server.");
+    };
+
+    xhr.send();
+}
+
+function showError(message) {
+    document.getElementById("output").innerHTML =
+        "<p class='error'>" + message + "</p>";
+}
+</script>
+
+</body>
+</html>

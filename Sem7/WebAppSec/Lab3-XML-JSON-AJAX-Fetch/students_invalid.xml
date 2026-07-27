@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Deliberately invalid document, used to prove the schema actually rejects bad data.
+  It is well-formed XML, but it breaks three schema rules:
+    1. semester = 12  (allowed range is 1..8)
+    2. cgpa     = 11.5 (allowed range is 0..10)
+    3. department = "CIVIL" (not in the enumeration)
+  Run:  php validate.php students_invalid.xml
+-->
+<students>
+    <student>
+        <registerNumber>CB22006</registerNumber>
+        <name>Invalid Record</name>
+        <department>CIVIL</department>
+        <semester>12</semester>
+        <cgpa>11.5</cgpa>
+    </student>
+</students>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Activity 1: XML document containing the details of five students. -->
+<students>
+    <student>
+        <registerNumber>CB22001</registerNumber>
+        <name>Alice Akash</name>
+        <department>CSE</department>
+        <semester>5</semester>
+        <cgpa>8.92</cgpa>
+    </student>
+    <student>
+        <registerNumber>CB22002</registerNumber>
+        <name>Dinesh Kumar</name>
+        <department>CSE</department>
+        <semester>5</semester>
+        <cgpa>9.14</cgpa>
+    </student>
+    <student>
+        <registerNumber>CB22003</registerNumber>
+        <name>Varun S</name>
+        <department>IT</department>
+        <semester>6</semester>
+        <cgpa>8.45</cgpa>
+    </student>
+    <student>
+        <registerNumber>CB22004</registerNumber>
+        <name>Karthik G</name>
+        <department>ECE</department>
+        <semester>7</semester>
+        <cgpa>7.86</cgpa>
+    </student>
+    <student>
+        <registerNumber>CB22005</registerNumber>
+        <name>Varunn Nair</name>
+        <department>CSE</department>
+        <semester>5</semester>
+        <cgpa>9.35</cgpa>
+    </student>
+</students>
