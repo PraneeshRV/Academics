@@ -8,3 +8,6 @@ Sem6/Forensics/LabEval/Set_C/usb_dd/usb.dd.*
 *.pyc
 *.pyo
 *.part
+
+# Vendored third-party clone (has its own .git + build target/); keep local
+Sem7/Biometric/sourceafis-java/

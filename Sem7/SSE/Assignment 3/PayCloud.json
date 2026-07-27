@@ -1,0 +1,1696 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "PayCloud Payroll System",
+    "owner": "Praneesh R V",
+    "description": "PayCloud is a cloud-based payroll management system that enables employees to securely view payslips and HR administrators to upload payroll data and issue salary payments. The system processes sensitive Personally Identifiable Information (PII) and financial data through a secure multi-tier architecture consisting of a web application, backend API, relational database, and cloud document storage.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 1,
+        "title": "PayCloud Payroll DFD",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": 1043.9999999999998,
+              "y": 260.00000000000307
+            },
+            "size": {
+              "width": 280,
+              "height": 250
+            },
+            "attrs": {
+              "label": {
+                "text": "Trust Boundary 1 (Internet to DMZ)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "45c1c863-8e72-4450-b254-48fc7bbbc566",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary 1 (Internet to DMZ)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "3b40536d-3d88-4be4-b76b-9734f676a4a7",
+                "a843a484-7090-4dc0-842e-e6d95e0d327e",
+                "76e520da-8bd2-4488-9253-ccd20386e1d8"
+              ],
+              "containedElements": [
+                "ce7749d4-ea4e-48f3-873f-2b5aa043b32d"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 80,
+              "y": 40
+            },
+            "size": {
+              "width": 650,
+              "height": 540
+            },
+            "attrs": {
+              "label": {
+                "text": "Trust Boundary 2 (Internal Network)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "042de888-8142-48a1-abff-543f6d261bb3",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary 2 (Internal Network)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "618faaf3-9761-443f-9a96-b3ff8880a516",
+                "9af66f9a-7283-48a7-8ed3-7653522b5494",
+                "5e117b21-c61a-447d-960f-9b3a2b3e6c5d"
+              ],
+              "containedElements": [
+                "af2ff993-f615-4d9d-940d-bfed39781631",
+                "a21b8363-0ce5-49f3-847a-97d16b26e5bf",
+                "1cfd889e-9309-4f78-9ad0-d29e7b7a02f9"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 910,
+              "y": 40
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Employee"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "05a2f40e-4048-496b-a7fe-bbbcd4e68e88"
+                },
+                {
+                  "group": "right",
+                  "id": "1f815a20-d957-4a49-9270-48d7eff37d06"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a8d820ca-2d3e-44df-b666-74b83cb90563"
+                },
+                {
+                  "group": "left",
+                  "id": "0de915c4-cd58-41ea-a0f6-52bee487b08a"
+                }
+              ]
+            },
+            "id": "509c7105-1722-49b9-858c-1535e1bd63f2",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Employee",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "3e29747b-7790-47c7-84d7-4500f9c882ab",
+                  "title": "User Authentication Spoofing",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker may use stolen employee or HR administrator credentials to impersonate a legitimate user and gain unauthorized access to the payroll system through the login page.\n",
+                  "mitigation": "Implement Multi-Factor Authentication (MFA), enforce strong password policies, use HTTPS, store passwords using salted hashing (bcrypt), and implement account lockout after repeated failed login attempts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 1300,
+              "y": 30
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "HR Admin"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "05a2f40e-4048-496b-a7fe-bbbcd4e68e88"
+                },
+                {
+                  "group": "right",
+                  "id": "1f815a20-d957-4a49-9270-48d7eff37d06"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a8d820ca-2d3e-44df-b666-74b83cb90563"
+                },
+                {
+                  "group": "left",
+                  "id": "0de915c4-cd58-41ea-a0f6-52bee487b08a"
+                }
+              ]
+            },
+            "id": "6c6cf623-bdd2-42b9-bfff-cc2e2fc30029",
+            "data": {
+              "type": "tm.Actor",
+              "name": "HR Admin",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "a222f003-8f2e-45cc-b1ef-5d0320f9d9a7",
+                  "title": "User Authentication Spoofing",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker may use stolen employee or HR administrator credentials to impersonate a legitimate user and gain unauthorized access to the payroll system through the login page.\n",
+                  "mitigation": "Implement Multi-Factor Authentication (MFA), enforce strong password policies, use HTTPS, store passwords using salted hashing (bcrypt), and implement account lockout after repeated failed login attempts.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "1faa0701-735f-436d-a583-33b89d7fbaaa",
+                  "title": "Payroll Update Repudiation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "An HR administrator may deny performing payroll updates or issuing payments because there is no reliable audit trail recording user activities.\n",
+                  "mitigation": "Maintain secure audit logs with timestamps, record user IDs and IP addresses, protect logs from modification, and regularly review audit records.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 1
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 1090,
+              "y": 330
+            },
+            "size": {
+              "width": 160,
+              "height": 150
+            },
+            "attrs": {
+              "text": {
+                "text": "Web Application\n(Nodejs webserve)"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "fea32fc3-c589-40ba-af89-4fc6cdd6255a"
+                },
+                {
+                  "group": "right",
+                  "id": "cefc7872-47ed-4248-8820-5c0f2fdda1f8"
+                },
+                {
+                  "group": "bottom",
+                  "id": "25ba9a21-d149-4057-b7fb-bfe03c2e7952"
+                },
+                {
+                  "group": "left",
+                  "id": "2c86abb9-cdbf-4b1c-9cf0-8e52ac837402"
+                }
+              ]
+            },
+            "id": "ce7749d4-ea4e-48f3-873f-2b5aa043b32d",
+            "data": {
+              "type": "tm.Process",
+              "name": "Web Application\n(Nodejs webserver)",
+              "description": " A Node.js web server hosted in a public cloud DMZ. It \nserves the UI, handles user authentication, and routes requests.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": true,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "8e1c15d3-b0f8-432f-95bd-e358826b43fa",
+                  "title": "Payroll Data Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker may modify payroll requests or API messages between the Web Application and Payroll API, resulting in unauthorized salary or payment changes.\n",
+                  "mitigation": "Protect communication using HTTPS/TLS, validate JWT tokens, perform server-side input validation, digitally sign sensitive requests, and verify request integrity.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "6521fcd8-b74d-4c46-b01c-951fd1ec8a72",
+                  "title": "Denial of Service Against Web Application",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "An attacker floods the Web Application with excessive login or API requests, exhausting server resources and preventing legitimate users from accessing payroll services.\n",
+                  "mitigation": "Implement rate limiting, deploy a Web Application Firewall (WAF), enable autoscaling, monitor traffic continuously, and block suspicious IP addresses.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Store PDF",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "042de888-8142-48a1-abff-543f6d261bb3"
+              ]
+            },
+            "labels": [
+              "Store PDF"
+            ],
+            "id": "618faaf3-9761-443f-9a96-b3ff8880a516",
+            "source": {
+              "x": 536,
+              "y": 415
+            },
+            "target": {
+              "cell": "1cfd889e-9309-4f78-9ad0-d29e7b7a02f9",
+              "port": "a092b686-0226-4a53-89a8-b35c20f0aac8"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Fetch PDF",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Fetch PDF"
+            ],
+            "id": "5fe86db0-a3ec-44f0-8035-736159e7d237",
+            "source": {
+              "x": 237,
+              "y": 400
+            },
+            "target": {
+              "x": 490,
+              "y": 390
+            },
+            "vertices": [
+              {
+                "x": 340,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Issue Payment",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Issue Payment"
+            ],
+            "id": "2555501d-7fd5-4704-9d0b-09635955a7c9",
+            "source": {
+              "x": 1336,
+              "y": 90
+            },
+            "target": {
+              "x": 1220,
+              "y": 350
+            },
+            "vertices": [
+              {
+                "x": 1250,
+                "y": 120
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "REST API / JWT",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "REST API / JWT"
+            ],
+            "id": "b3e569e3-7b14-43e8-8fe4-addb4ffcc150",
+            "source": {
+              "x": 1166,
+              "y": 480
+            },
+            "target": {
+              "x": 590,
+              "y": 390
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Payroll Records / User Data\n",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "042de888-8142-48a1-abff-543f6d261bb3"
+              ]
+            },
+            "labels": [
+              "Payroll Records / User Data\n"
+            ],
+            "id": "9af66f9a-7283-48a7-8ed3-7653522b5494",
+            "source": {
+              "x": 260,
+              "y": 250
+            },
+            "target": {
+              "cell": "af2ff993-f615-4d9d-940d-bfed39781631",
+              "port": "2c86abb9-cdbf-4b1c-9cf0-8e52ac837402"
+            },
+            "vertices": [
+              {
+                "x": 390,
+                "y": 320
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "SQL Queries \n",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "042de888-8142-48a1-abff-543f6d261bb3"
+              ]
+            },
+            "labels": [
+              "SQL Queries \n"
+            ],
+            "id": "5e117b21-c61a-447d-960f-9b3a2b3e6c5d",
+            "source": {
+              "x": 534,
+              "y": 270
+            },
+            "target": {
+              "cell": "a21b8363-0ce5-49f3-847a-97d16b26e5bf",
+              "port": "eaf7b1fc-a2c9-4acb-8fb6-1991749e4d46"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": 230
+              },
+              {
+                "x": 450,
+                "y": 230
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "View Payslip",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "View Payslip"
+            ],
+            "id": "93347ed6-e564-4853-88af-3a70df70d39d",
+            "source": {
+              "x": 930,
+              "y": 100
+            },
+            "target": {
+              "x": 1120,
+              "y": 350
+            },
+            "vertices": [
+              {
+                "x": 910,
+                "y": 160
+              },
+              {
+                "x": 970,
+                "y": 260
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTPS Login",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "45c1c863-8e72-4450-b254-48fc7bbbc566"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "HTTPS Login"
+            ],
+            "id": "3b40536d-3d88-4be4-b76b-9734f676a4a7",
+            "source": {
+              "x": 970,
+              "y": 90
+            },
+            "target": {
+              "cell": "ce7749d4-ea4e-48f3-873f-2b5aa043b32d",
+              "port": "fea32fc3-c589-40ba-af89-4fc6cdd6255a"
+            },
+            "vertices": [
+              {
+                "x": 1110,
+                "y": 180
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "PDF Payslip/Payroll Data",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "25d1137a-a2fd-46ec-ac8f-8ad0e2d68d07",
+                  "title": "Payroll Data Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker may modify payroll requests or API messages between the Web Application and Payroll API, resulting in unauthorized salary or payment changes.\n",
+                  "mitigation": "Protect communication using HTTPS/TLS, validate JWT tokens, perform server-side input validation, digitally sign sensitive requests, and verify request integrity.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "PDF Payslip/Payroll Data"
+            ],
+            "id": "ae1831f6-86a0-45eb-a91b-5c7ddc89d37c",
+            "source": {
+              "x": 610,
+              "y": 340
+            },
+            "target": {
+              "x": 1119,
+              "y": 370
+            },
+            "vertices": [
+              {
+                "x": 830,
+                "y": 340
+              },
+              {
+                "x": 870,
+                "y": 330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTPS Login",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "45c1c863-8e72-4450-b254-48fc7bbbc566"
+              ]
+            },
+            "labels": [
+              "HTTPS Login"
+            ],
+            "id": "a843a484-7090-4dc0-842e-e6d95e0d327e",
+            "source": {
+              "x": 1354,
+              "y": 90
+            },
+            "target": {
+              "cell": "ce7749d4-ea4e-48f3-873f-2b5aa043b32d",
+              "port": "cefc7872-47ed-4248-8820-5c0f2fdda1f8"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Payroll PDF",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Payroll PDF"
+            ],
+            "id": "82dfe8d3-bba9-48c5-b893-069656f7e4f5",
+            "source": {
+              "x": 1124,
+              "y": 340
+            },
+            "target": {
+              "cell": "509c7105-1722-49b9-858c-1535e1bd63f2",
+              "port": "a8d820ca-2d3e-44df-b666-74b83cb90563"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Payroll Update",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "45c1c863-8e72-4450-b254-48fc7bbbc566"
+              ]
+            },
+            "labels": [
+              "Payroll Update"
+            ],
+            "id": "76e520da-8bd2-4488-9253-ccd20386e1d8",
+            "source": {
+              "x": 1390,
+              "y": 90
+            },
+            "target": {
+              "cell": "ce7749d4-ea4e-48f3-873f-2b5aa043b32d",
+              "port": "cefc7872-47ed-4248-8820-5c0f2fdda1f8"
+            },
+            "vertices": [
+              {
+                "x": 1480,
+                "y": 180
+              },
+              {
+                "x": 1440,
+                "y": 240
+              },
+              {
+                "x": 1400,
+                "y": 280
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Payroll Update status",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Payroll Update status"
+            ],
+            "id": "6dd8b2f3-aff8-4668-ae10-705ddfb0a7c0",
+            "source": {
+              "x": 1250,
+              "y": 430
+            },
+            "target": {
+              "cell": "6c6cf623-bdd2-42b9-bfff-cc2e2fc30029",
+              "port": "1f815a20-d957-4a49-9270-48d7eff37d06"
+            },
+            "vertices": [
+              {
+                "x": 1400,
+                "y": 490
+              },
+              {
+                "x": 1510,
+                "y": 250
+              }
+            ]
+          },
+          {
+            "position": {
+              "x": 468,
+              "y": 265.0000000000034
+            },
+            "size": {
+              "width": 140,
+              "height": 150
+            },
+            "attrs": {
+              "text": {
+                "text": "Python Payroll API"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 11,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "fea32fc3-c589-40ba-af89-4fc6cdd6255a"
+                },
+                {
+                  "group": "right",
+                  "id": "cefc7872-47ed-4248-8820-5c0f2fdda1f8"
+                },
+                {
+                  "group": "bottom",
+                  "id": "25ba9a21-d149-4057-b7fb-bfe03c2e7952"
+                },
+                {
+                  "group": "left",
+                  "id": "2c86abb9-cdbf-4b1c-9cf0-8e52ac837402"
+                }
+              ]
+            },
+            "id": "af2ff993-f615-4d9d-940d-bfed39781631",
+            "data": {
+              "type": "tm.Process",
+              "name": "Python Payroll API",
+              "description": " A Python-based API server hosted on a private cloud subnet. \nIt processes business logic, calculates tax deductions, and enforces role-based \naccess controls (RBAC).",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "752c957d-1ab4-4e48-abd7-5201f48778f5",
+                  "title": "Payroll Data Tampering",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "An attacker may modify payroll requests or API messages between the Web Application and Payroll API, resulting in unauthorized salary or payment changes.\n",
+                  "mitigation": "Protect communication using HTTPS/TLS, validate JWT tokens, perform server-side input validation, digitally sign sensitive requests, and verify request integrity.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "328e9e77-e911-4fb3-95a7-00f1bb67d906",
+                  "title": "Unauthorized Privilege Escalation",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Elevation of privilege",
+                  "description": "A normal employee exploits weak authorization checks in the Payroll API to access HR administrator functions such as payroll updates or payment processing.\n",
+                  "mitigation": "Enforce Role-Based Access Control (RBAC), validate authorization on every API request, apply the principle of least privilege, and perform regular security testing.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 180,
+              "y": 170
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "PostgreSQL Database"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 12,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "b1391d71-731a-494a-b55c-d31396de1328"
+                },
+                {
+                  "group": "right",
+                  "id": "eaf7b1fc-a2c9-4acb-8fb6-1991749e4d46"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a092b686-0226-4a53-89a8-b35c20f0aac8"
+                },
+                {
+                  "group": "left",
+                  "id": "9571628a-4174-4420-8fc1-846be26e88c2"
+                }
+              ]
+            },
+            "id": "a21b8363-0ce5-49f3-847a-97d16b26e5bf",
+            "data": {
+              "type": "tm.Store",
+              "name": "PostgreSQL Database",
+              "description": "A PostgreSQL database in a restricted database subnet. It \nstores user credentials, salary details, and personal identification numbers. ",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "fcdd3e46-b6ea-4db9-a598-e24cb08e9c57",
+                  "title": "Sensitive Payroll Information Disclosure",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure",
+                  "description": "Sensitive employee information, salary records, or PDF payslips stored in PostgreSQL or the S3 bucket may be exposed because of insecure permissions or data leakage.\n",
+                  "mitigation": "Encrypt data at rest and in transit, configure least-privilege access controls, secure S3 bucket permissions, encrypt database backups, and mask sensitive information where appropriate.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 3,
+                "denialOfService": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 151,
+              "y": 400
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "AWS S3 Bucket\n(Payslip storage)"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 13,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "b1391d71-731a-494a-b55c-d31396de1328"
+                },
+                {
+                  "group": "right",
+                  "id": "eaf7b1fc-a2c9-4acb-8fb6-1991749e4d46"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a092b686-0226-4a53-89a8-b35c20f0aac8"
+                },
+                {
+                  "group": "left",
+                  "id": "9571628a-4174-4420-8fc1-846be26e88c2"
+                }
+              ]
+            },
+            "id": "1cfd889e-9309-4f78-9ad0-d29e7b7a02f9",
+            "data": {
+              "type": "tm.Store",
+              "name": "AWS S3 Bucket\n(Payslip storage)",
+              "description": " An AWS S3 bucket (Data Store) that holds generated PDF payslips. \nThe API server fetches these and passes them to the Web Application. ",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "1c5aaaf1-ba25-4f0a-a191-a83ea4f39aff",
+                  "title": "Sensitive Payroll Information Disclosure",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Tampering",
+                  "description": "Sensitive employee information, salary records, or PDF payslips stored in PostgreSQL or the S3 bucket may be exposed because of insecure permissions or data leakage.\n",
+                  "mitigation": "Encrypt data at rest and in transit, configure least-privilege access controls, secure S3 bucket permissions, encrypt database backups, and mask sensitive information where appropriate.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            }
+          }
+        ],
+        "description": "cloud-based payroll management system "
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 13
+  }
+}

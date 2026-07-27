@@ -1,0 +1,13 @@
+services:
+  ipfs:
+    build: .
+    container_name: ipfs-node
+    ports:
+      - "4001:4001"   # Swarm (P2P)
+      - "5001:5001"   # API + Web UI
+      - "8080:8080"   # Gateway
+    volumes:
+      - ipfs-data:/data/ipfs   # persist the repo (keys, config, blockstore)
+
+volumes:
+  ipfs-data:
