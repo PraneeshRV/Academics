@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <script src="js/validation.js"></script>
+</head>
+
+<body>
+
+<h2>User Registration</h2>
+
+<form action="register.php" method="POST" onsubmit="return validateRegister()">
+
+Username:<br>
+<input type="text" id="username" name="username" required><br><br>
+
+Email:<br>
+<input type="email" id="email" name="email" required><br><br>
+
+Password:<br>
+<input type="password" id="password" name="password" required minlength="6"><br><br>
+
+Role:<br>
+<select name="role">
+<option value="user">User</option>
+<option value="admin">Admin</option>
+</select>
+
+<br><br>
+
+<input type="submit" value="Register">
+
+</form>
+
+<br>
+
+<a href="login.html">Login</a>
+
+</body>
+</html>

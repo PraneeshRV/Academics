@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<students>
+    <student>
+        <registerNumber>23034</registerNumber>
+        <name>vedica</name>
+        <department>CYS</department>
+        <semester>6</semester>
+        <cgpa>9.02</cgpa>
+    </student>
+
+    <student>
+        <registerNumber>23045</registerNumber>
+        <name>soffia</name>
+        <department>CYS</department>
+        <semester>6</semester>
+        <cgpa>8.72</cgpa>
+    </student>
+
+    <student>
+        <registerNumber>23052</registerNumber>
+        <name>vedha</name>
+        <department>CYS</department>
+        <semester>6</semester>
+        <cgpa>8.75</cgpa>
+    </student>
+
+    <student>
+        <registerNumber>23002</registerNumber>
+        <name>anagha</name>
+        <department>CYS</department>
+        <semester>6</semester>
+        <cgpa>9.16</cgpa>
+    </student>
+
+    <student>
+        <registerNumber>23334</registerNumber>
+        <name>renny</name>
+        <department>AI</department>
+        <semester>6</semester>
+        <cgpa>9.57</cgpa>
+    </student>
+</students>

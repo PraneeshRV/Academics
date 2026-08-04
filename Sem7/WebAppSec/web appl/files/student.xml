@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student>
+    <email>shyamraj@example.com</email>
+    <marks>
+        <subject name="Mathematics">85</subject>
+        <subject name="Physics">78</subject>
+        <subject name="Chemistry">92</subject>
+        <subject name="ComputerScience">88</subject>
+        <subject name="English">75</subject>
+    </marks>
+</student>

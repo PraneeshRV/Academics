@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Student
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="student.xsd">
+
+    <Name>Ponvedica M S</Name>
+
+    <RollNumber>23034</RollNumber>
+
+    <Subjects>
+
+        <Subject>
+            <Name>Web Appln</Name>
+            <Marks>95</Marks>
+        </Subject>
+
+        <Subject>
+            <Name>Secure Software</Name>
+            <Marks>88</Marks>
+        </Subject>
+
+        <Subject>
+            <Marks>91</Marks>
+        </Subject>
+
+        <Subject>
+            <Name>Application Dev</Name>
+            <Marks>76</Marks>
+        </Subject>
+
+        <Subject>
+            <Name>ISRM</Name>
+            <Marks>98</Marks>
+        </Subject>
+
+    </Subjects>
+
+</Student>

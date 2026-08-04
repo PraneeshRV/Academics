@@ -1,0 +1,117 @@
+# DSCC Docker viva — every lab running at the same time, no port clashes.
+#   docker compose -f docker-compose.all.yml up -d --build
+#   docker compose -f docker-compose.all.yml ps
+#   docker compose -f docker-compose.all.yml down -v
+#
+# Host port map
+#   8081  PortExpose  (Class2 nginx)
+#   5000  Lab2 flask
+#   8000  Lab2 filesharing
+#   8080  Lab3 compose website (bind mount + named volume)
+#   8082  Lab4 db-connector app
+#   5432  Lab4 postgres
+#   4001 / 5001 / 8083  IPFS swarm / API+WebUI / gateway
+name: dscc-viva
+
+services:
+
+  # ---- Lab 1.5 : layers, ENV, RUN, deleted-file layer proof ----------------
+  lab1:
+    image: shadoweternity/firstdockerimage:latest
+    container_name: dscc-lab1
+    command: ["sh", "-c", "sleep infinity"]
+    tty: true
+
+  # ---- PortExpose : nginx serving a copied page, EXPOSE 80 ----------------
+  portexpose:
+    build: ./Class2
+    image: shadoweternity/portdockerimage:latest
+    container_name: dscc-portexpose
+    ports:
+      - "8081:80"
+
+  # ---- Lab 2a : flask app image ------------------------------------------
+  flask:
+    build: ./Lab2/DockerLab1
+    image: shadoweternity/flaskappdockerimage:latest
+    container_name: dscc-flask
+    ports:
+      - "5000:5000"
+
+  # ---- Lab 2b : file sharing service (v2) --------------------------------
+  filesharing:
+    build: ./Lab2/filesharingdockerv2
+    image: shadoweternity/filesharingdockerimage:2.0
+    container_name: dscc-filesharing
+    ports:
+      - "8000:8000"
+
+  # ---- Lab 3a : compose + bind mount + named volume ----------------------
+  lab3web:
+    image: shadoweternity/portdockerimage:latest
+    container_name: dscc-lab3web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Lab3/website:/usr/share/nginx/html
+      - nginx_logs:/var/log/nginx
+
+  # ---- Lab 3b : named-volume persistence logger --------------------------
+  logger:
+    build: ./Lab3/logger-docker-lab
+    image: shadoweternity/loggendockerimage:latest
+    container_name: dscc-logger
+    volumes:
+      - logger_data:/data
+
+  # ---- Lab 4 : multi-container app + postgres ----------------------------
+  db:
+    image: postgres:16
+    container_name: dscc-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d mydb"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  dbapp:
+    build: ./Lab4
+    image: shadoweternity/db-conn-dockerimage:latest
+    container_name: dscc-dbapp
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: admin
+      DB_PASSWORD: secret
+      DB_NAME: mydb
+    ports:
+      - "8082:8080"
+
+  # ---- IPFS node ---------------------------------------------------------
+  ipfs:
+    build: ./ipfs
+    image: shadoweternity/ipfsdockerimage:latest
+    container_name: dscc-ipfs
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8083:8080"
+    volumes:
+      - ipfs-data:/data/ipfs
+
+volumes:
+  nginx_logs:
+  logger_data:
+  pgdata:
+  ipfs-data:

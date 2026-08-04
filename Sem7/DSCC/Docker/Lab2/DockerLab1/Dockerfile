@@ -8,7 +8,7 @@ LABEL email="praneeshrv404@gmail.com"
 # Install packages
 RUN apt-get update && \
     apt-get install -y curl nano && \
-    apt-get clean \
+    apt-get clean
 
 # Environment Variable
 ENV APP_NAME="DSCC-Lab2-flaskappdockerimage"

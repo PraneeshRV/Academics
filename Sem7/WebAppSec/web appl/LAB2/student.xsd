@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Student">
+
+        <xs:complexType>
+
+            <xs:sequence>
+
+                <xs:element name="Name" type="xs:string"/>
+
+                <xs:element name="RollNumber" type="xs:integer"/>
+
+                <xs:element name="Subjects">
+
+                    <xs:complexType>
+
+                        <xs:sequence>
+
+                            <xs:element name="Subject" maxOccurs="5" minOccurs="5">
+
+                                <xs:complexType>
+
+                                    <xs:sequence>
+
+                                        <xs:element name="Name" type="xs:string"/>
+
+                                        <xs:element name="Marks">
+
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:integer">
+                                                    <xs:minInclusive value="0"/>
+                                                    <xs:maxInclusive value="100"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+
+                                    </xs:sequence>
+
+                                </xs:complexType>
+
+                            </xs:element>
+
+                        </xs:sequence>
+
+                    </xs:complexType>
+
+                </xs:element>
+
+            </xs:sequence>
+
+        </xs:complexType>
+
+    </xs:element>
+
+</xs:schema>

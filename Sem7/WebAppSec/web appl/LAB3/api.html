@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Student Viewer</title>
+</head>
+<body>
+
+<h2>Student Details (AJAX)</h2>
+
+<button onclick="loadStudents()">Load Students</button>
+
+<div id="output"></div>
+
+<script>
+
+function loadStudents(){
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET","students.php",true);
+
+    xhr.onload = function(){
+
+        if(xhr.status == 200){
+
+            let students = JSON.parse(xhr.responseText);
+
+            let table="<table border='1' cellpadding='8'>";
+            table+="<tr>";
+            table+="<th>Register No</th>";
+            table+="<th>Name</th>";
+            table+="<th>Department</th>";
+            table+="<th>Semester</th>";
+            table+="<th>CGPA</th>";
+            table+="</tr>";
+
+            students.forEach(function(student){
+
+                table+="<tr>";
+                table+="<td>"+student.registerNumber+"</td>";
+                table+="<td>"+student.name+"</td>";
+                table+="<td>"+student.department+"</td>";
+                table+="<td>"+student.semester+"</td>";
+                table+="<td>"+student.cgpa+"</td>";
+                table+="</tr>";
+
+            });
+
+            table+="</table>";
+
+            document.getElementById("output").innerHTML=table;
+        }
+        else{
+            document.getElementById("output").innerHTML="Unable to retrieve student data.";
+        }
+
+    };
+
+    xhr.send();
+
+}
+
+</script>
+
+</body>
+</html>

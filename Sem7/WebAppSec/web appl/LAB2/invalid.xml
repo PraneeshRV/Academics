@@ -1,0 +1,17 @@
+<Student>
+
+<Name>John Smith</Name>
+
+<RollNumber>101
+
+<Subjects>
+
+<Subject>
+
+<Name>Math</Name>
+
+<Marks>90</Marks>
+
+</Subject>
+
+</Student>
