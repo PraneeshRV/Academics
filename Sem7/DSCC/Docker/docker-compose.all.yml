@@ -4,7 +4,7 @@
 #   docker compose -f docker-compose.all.yml down -v
 #
 # Host port map
-#   8081  PortExpose  (Class2 nginx)
+#   8081  PortExpose  (portdockerimage nginx)
 #   5000  Lab2 flask
 #   8000  Lab2 filesharing
 #   8080  Lab3 compose website (bind mount + named volume)
@@ -24,7 +24,7 @@ services:
 
   # ---- PortExpose : nginx serving a copied page, EXPOSE 80 ----------------
   portexpose:
-    build: ./Class2
+    build: ./portdockerimage
     image: shadoweternity/portdockerimage:latest
     container_name: dscc-portexpose
     ports:
@@ -32,7 +32,7 @@ services:
 
   # ---- Lab 2a : flask app image ------------------------------------------
   flask:
-    build: ./Lab2/DockerLab1
+    build: ./flaskappdockerimage
     image: shadoweternity/flaskappdockerimage:latest
     container_name: dscc-flask
     ports:
@@ -40,7 +40,7 @@ services:
 
   # ---- Lab 2b : file sharing service (v2) --------------------------------
   filesharing:
-    build: ./Lab2/filesharingdockerv2
+    build: ./filesharingdockerimage
     image: shadoweternity/filesharingdockerimage:2.0
     container_name: dscc-filesharing
     ports:
@@ -53,12 +53,12 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./Lab3/website:/usr/share/nginx/html
+      - ./Lab3-compose-website/website:/usr/share/nginx/html
       - nginx_logs:/var/log/nginx
 
   # ---- Lab 3b : named-volume persistence logger --------------------------
   logger:
-    build: ./Lab3/logger-docker-lab
+    build: ./loggendockerimage
     image: shadoweternity/loggendockerimage:latest
     container_name: dscc-logger
     volumes:
@@ -83,7 +83,7 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   dbapp:
-    build: ./Lab4
+    build: ./db-conn-dockerimage
     image: shadoweternity/db-conn-dockerimage:latest
     container_name: dscc-dbapp
     depends_on:
@@ -100,7 +100,7 @@ services:
 
   # ---- IPFS node ---------------------------------------------------------
   ipfs:
-    build: ./ipfs
+    build: ./ipfsdockerimage
     image: shadoweternity/ipfsdockerimage:latest
     container_name: dscc-ipfs
     ports:

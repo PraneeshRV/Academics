@@ -43,7 +43,7 @@ up() {
 
   # Lab 3a — bind mount (live website) + named volume (nginx logs), host 8080
   docker run -d --name dscc-lab3web --network "$NET" -p 8080:80 \
-    -v "$ROOT/Lab3/website:/usr/share/nginx/html" \
+    -v "$ROOT/Lab3-compose-website/website:/usr/share/nginx/html" \
     -v dscc_nginx_logs:/var/log/nginx \
     shadoweternity/portdockerimage:latest
 

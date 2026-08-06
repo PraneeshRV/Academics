@@ -2,6 +2,23 @@
 
 Docker Hub account: **shadoweternity** · everything below is built, tagged and verified working.
 
+## Folder = image name
+
+Every buildable folder is named after the image it produces, so `docker images` and `ls` line up.
+
+| Folder | Image | Was |
+|---|---|---|
+| `firstdockerimage/` | `shadoweternity/firstdockerimage:latest` | Lab1.5 |
+| `portdockerimage/` | `shadoweternity/portdockerimage:latest` | Class2 |
+| `flaskappdockerimage/` | `shadoweternity/flaskappdockerimage:latest` | Lab2/DockerLab1 |
+| `filesharingdockerimage/` | `shadoweternity/filesharingdockerimage:2.0` | Lab2/filesharingdockerv2 |
+| `filesharingdockerimage-v1/` | `shadoweternity/filesharingdockerimage:1.0` and `:latest` | Lab2/filesharingdocker |
+| `loggendockerimage/` | `shadoweternity/loggendockerimage:latest` | Lab3/logger-docker-lab |
+| `db-conn-dockerimage/` | `shadoweternity/db-conn-dockerimage:latest` | Lab4 |
+| `ipfsdockerimage/` | `shadoweternity/ipfsdockerimage:latest` | ipfs |
+| `Lab1-ubuntu-base/` | *(no image built — `FROM ubuntu` only)* | Lab1 |
+| `Lab3-compose-website/` | *(no image — compose + bind mount + named volume lab, runs `portdockerimage`)* | Lab3 |
+
 ## 0. Bring everything up at once
 
 Compose (one command, all labs):
@@ -31,7 +48,7 @@ docker compose -f docker-compose.all.yml down -v     # drop volumes too
 
 | Lab | URL | Container port |
 |---|---|---|
-| PortExpose (Class2 nginx) | http://localhost:8081 | 80 |
+| PortExpose (portdockerimage) | http://localhost:8081 | 80 |
 | Lab 2 — flask app | http://localhost:5000 | 5000 |
 | Lab 2 — file sharing | http://localhost:8000 | 8000 |
 | Lab 3 — website (bind mount + volume) | http://localhost:8080 | 80 |
@@ -48,7 +65,7 @@ docker compose -f docker-compose.all.yml down -v     # drop volumes too
 
 ## Lab 1 / 1.5 — image layers, ENV, RUN
 
-Image: `shadoweternity/firstdockerimage:latest` (busybox base)
+Source: `firstdockerimage/` · Image: `shadoweternity/firstdockerimage:latest` (busybox base)
 
 ```bash
 docker run --rm shadoweternity/firstdockerimage sh -c 'echo $HELLO; cat /hello; ls /remove_me'
@@ -66,7 +83,7 @@ Talking points:
 
 ## PortExpose — EXPOSE vs -p
 
-Image: `shadoweternity/portdockerimage:latest` (nginx:alpine + custom index.html)
+Source: `portdockerimage/` · Image: `shadoweternity/portdockerimage:latest` (nginx:alpine + custom index.html)
 
 ```bash
 docker run -d --name portdemo -p 8081:80 shadoweternity/portdockerimage:latest
@@ -81,10 +98,10 @@ Talking points:
 
 ## Lab 2a — Flask app image
 
-Source: `Lab2/DockerLab1/` · Image: `shadoweternity/flaskappdockerimage:latest`
+Source: `flaskappdockerimage/` · Image: `shadoweternity/flaskappdockerimage:latest`
 
 ```bash
-docker build -t shadoweternity/flaskappdockerimage:latest Lab2/DockerLab1
+docker build -t shadoweternity/flaskappdockerimage:latest flaskappdockerimage
 docker run -d --name flaskdemo -p 5000:5000 shadoweternity/flaskappdockerimage:latest
 curl http://localhost:5000                 # -> Welcome to Docker Lab!
 docker exec flaskdemo printenv APP_NAME    # -> DSCC-Lab2-flaskappdockerimage
@@ -95,7 +112,7 @@ Dockerfile covers: base image, `LABEL` maintainer/email, `RUN apt-get` package i
 
 ## Lab 2b — File sharing service
 
-Source: `Lab2/filesharingdockerv2/` · Image: `shadoweternity/filesharingdockerimage:2.0`
+Source: `filesharingdockerimage/` · Image: `shadoweternity/filesharingdockerimage:2.0`
 
 ```bash
 docker run -d --name fsdemo -p 8000:8000 shadoweternity/filesharingdockerimage:2.0
@@ -117,17 +134,17 @@ Tags on Hub: `1.0`, `2.0`, `latest` — shows image versioning.
 
 ## Lab 3a — Compose, bind mount, named volume
 
-Source: `Lab3/`
+Source: `Lab3-compose-website/`
 
 ```bash
-cd Lab3 && docker compose up -d
+cd Lab3-compose-website && docker compose up -d
 curl http://localhost:8080
 ```
 
 Live-edit demo (the strongest bind-mount proof):
 
 ```bash
-echo '<h1>Edited live, no rebuild</h1>' >> Lab3/website/index.html
+echo '<h1>Edited live, no rebuild</h1>' >> Lab3-compose-website/website/index.html
 curl http://localhost:8080          # change served immediately
 ```
 
@@ -141,7 +158,7 @@ docker run --rm -v dscc-viva_nginx_logs:/l alpine cat /l/access.log
 
 ## Lab 3b — Named volume persistence
 
-Source: `Lab3/logger-docker-lab/` · Image: `shadoweternity/loggendockerimage:latest`
+Source: `loggendockerimage/` · Image: `shadoweternity/loggendockerimage:latest`
 
 ```bash
 docker exec dscc-logger cat /data/log.txt | tail -5
@@ -154,10 +171,10 @@ The log already carries timestamps from earlier lab sessions (09 Jul, 10 Jul, to
 
 ## Lab 4 — Multi-container app + PostgreSQL
 
-Source: `Lab4/` · Image: `shadoweternity/db-conn-dockerimage:latest`
+Source: `db-conn-dockerimage/` · Image: `shadoweternity/db-conn-dockerimage:latest`
 
 ```bash
-cd Lab4 && docker compose up -d
+cd db-conn-dockerimage && docker compose up -d
 curl http://localhost:8080/health
 ```
 
@@ -179,7 +196,7 @@ Talking points:
 
 ## IPFS node
 
-Source: `ipfs/` · Image: `shadoweternity/ipfsdockerimage:latest` (Debian slim + Kubo v0.42.0)
+Source: `ipfsdockerimage/` · Image: `shadoweternity/ipfsdockerimage:latest` (Debian slim + Kubo v0.42.0)
 
 ```bash
 docker exec dscc-ipfs ipfs id
