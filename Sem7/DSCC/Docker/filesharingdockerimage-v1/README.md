@@ -30,8 +30,8 @@ python server.py
 
 ### Run with Docker
 ```
-docker build -t filesharingdockerimage:latest .
-docker run -d -p 8036:8000 --name filesharing_container filesharingdockerimage:latest
+docker build -t filesharingdockerimage:1.0 .
+docker run -d -p 8037:8000 --name filesharing_v1_container filesharingdockerimage:1.0
 ```
 
-Then open: http://localhost:8036
+Then open: http://localhost:8037

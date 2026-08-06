@@ -1,3 +1,8 @@
+# Standalone Lab 4. Host ports 8091 / 5433 so this can run at the same time as
+# the combined stack (docker-compose.all.yml), which uses 8082 / 5432.
+# Container ports are unchanged — only the host side moves. The app still
+# reaches the DB as host "db" on 5432 over the compose network, never via the
+# published port.
 services:
   db:
     image: postgres:16
@@ -7,7 +12,7 @@ services:
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: mydb
     ports:
-      - "5432:5432"
+      - "5433:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U admin -d mydb"]
       interval: 3s
@@ -27,4 +32,4 @@ services:
       DB_PASSWORD: secret
       DB_NAME: mydb
     ports:
-      - "8080:8080"
+      - "8091:8080"

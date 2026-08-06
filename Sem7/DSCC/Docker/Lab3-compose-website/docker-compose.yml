@@ -1,10 +1,16 @@
+# Standalone Lab 3a. Host port 8090 so this can run at the same time as the
+# combined stack (docker-compose.all.yml), which serves the same lab on 8080.
 services:
   web:
+    container_name: lab3-website-standalone
     image: shadoweternity/portdockerimage:latest
     ports:
-      - "8080:80"
+      - "8090:80"
     volumes:
       - ./website:/usr/share/nginx/html
       - nginx_logs:/var/log/nginx         
 volumes:
   nginx_logs:
+    # Pinned to the pre-rename volume name so the accumulated access.log survives
+    # the folder rename (compose otherwise prefixes volumes with the folder name).
+    name: lab3_nginx_logs

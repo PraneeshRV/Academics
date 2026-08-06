@@ -1,13 +1,20 @@
+# Standalone IPFS node. Host ports 4002 / 5002 / 8092 so this can run at the
+# same time as the combined stack (docker-compose.all.yml), which uses
+# 4001 / 5001 / 8083. Container ports stay standard.
 services:
   ipfs:
     build: .
     container_name: ipfs-node
     ports:
-      - "4001:4001"   # Swarm (P2P)
-      - "5001:5001"   # API + Web UI
-      - "8080:8080"   # Gateway
+      - "4002:4001"   # Swarm (P2P)
+      - "5002:5001"   # API + Web UI
+      - "8092:8080"   # Gateway
     volumes:
       - ipfs-data:/data/ipfs   # persist the repo (keys, config, blockstore)
 
 volumes:
   ipfs-data:
+    # Pinned to the pre-rename volume name. This repo holds the node's private key,
+    # so a fresh volume would mean a new peer ID — which breaks the "restart and
+    # `ipfs id` is unchanged" talking point.
+    name: ipfs_ipfs-data

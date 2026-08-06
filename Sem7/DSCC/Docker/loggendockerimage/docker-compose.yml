@@ -7,3 +7,8 @@ services:
 
 volumes:
   logger_data:
+    # Pinned to the pre-rename volume name. Compose normally prefixes volumes with
+    # the project (= folder) name, so renaming this folder would have pointed the
+    # lab at a brand-new empty volume and destroyed the persistence demo — the
+    # 09 Jul onward timestamps live in this one.
+    name: logger-docker-lab_logger_data
