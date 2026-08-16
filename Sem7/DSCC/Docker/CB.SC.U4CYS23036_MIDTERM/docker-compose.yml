@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    image: mt-webauth:1.0
+    container_name: mt-webauth-container
+    ports:
+      - "5000:5000"
+    environment:
+      - ROLLNUMBER=CB.SC.U4CYS23036
+      - NAME=Praneesh R V
+      - DB_HOST=127.0.0.1
+      - DB_PORT=3306
+      - DB_NAME=midterm_db
+      - DB_USER=midterm_user
+      - DB_PASSWORD=midterm_pass
+    volumes:
+      - ./web:/midterm-exam/web
+      - ./database:/midterm-exam/database

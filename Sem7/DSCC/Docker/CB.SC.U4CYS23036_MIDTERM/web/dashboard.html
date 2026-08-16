@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ user }} | <a href="/logout">Logout</a></h2>
+
+    <h3>Users List</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+        {% for u in users %}
+        <tr>
+            <td>{{ u[0] }}</td>
+            <td>{{ u[1] }}</td>
+            <td>{{ u[2] }}</td>
+            <td>{{ u[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
