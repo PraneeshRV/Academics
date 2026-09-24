@@ -1,0 +1,57 @@
+services:
+  master:
+    build: ./master
+    container_name: clock-master
+    environment:
+      REQUEST_DELAY_MS: ${REQUEST_DELAY_MS:-0}
+      REPLY_DELAY_MS: ${REPLY_DELAY_MS:-0}
+    networks:
+      - clock-net
+
+  client1:
+    build: ./client
+    container_name: clock-client1
+    environment:
+      CLIENT_ID: client1
+      CLOCK_OFFSET: "-8"
+    depends_on:
+      - master
+    networks:
+      - clock-net
+
+  client2:
+    build: ./client
+    container_name: clock-client2
+    environment:
+      CLIENT_ID: client2
+      CLOCK_OFFSET: "6"
+    depends_on:
+      - master
+    networks:
+      - clock-net
+
+  client3:
+    build: ./client
+    container_name: clock-client3
+    environment:
+      CLIENT_ID: client3
+      CLOCK_OFFSET: "-4"
+    depends_on:
+      - master
+    networks:
+      - clock-net
+
+  client4:
+    build: ./client
+    container_name: clock-client4
+    environment:
+      CLIENT_ID: client4
+      CLOCK_OFFSET: "10"
+    depends_on:
+      - master
+    networks:
+      - clock-net
+
+networks:
+  clock-net:
+    external: true
