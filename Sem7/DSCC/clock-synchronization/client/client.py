@@ -5,7 +5,7 @@ from datetime import datetime
 
 CLIENT_ID = os.getenv("CLIENT_ID", "client")
 MASTER_HOST = os.getenv("MASTER_HOST", "clock-master")
-MASTER_PORT = 5000
+MASTER_PORT = int(os.getenv("MASTER_PORT", "5000"))
 CLOCK_OFFSET = float(os.getenv("CLOCK_OFFSET", "0"))
 
 
@@ -40,7 +40,6 @@ rtt = t2 - t1
 delay = rtt / 2
 corrected_clock = master_time + delay
 
-# Master's clock has offset 0, so the true time at T2 is real_time
 error = corrected_clock - real_time
 
 print(f"""

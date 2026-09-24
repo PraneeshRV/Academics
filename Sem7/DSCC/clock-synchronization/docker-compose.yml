@@ -1,6 +1,7 @@
 services:
   master:
     build: ./master
+    image: shadoweternity/cs_ca_leader:latest
     container_name: clock-master
     environment:
       REQUEST_DELAY_MS: ${REQUEST_DELAY_MS:-0}
@@ -10,45 +11,53 @@ services:
 
   client1:
     build: ./client
+    image: shadoweternity/cs_ca_follower:latest
     container_name: clock-client1
     environment:
       CLIENT_ID: client1
       CLOCK_OFFSET: "-8"
     depends_on:
-      - master
+      master:
+        condition: service_healthy
     networks:
       - clock-net
 
   client2:
     build: ./client
+    image: shadoweternity/cs_ca_follower:latest
     container_name: clock-client2
     environment:
       CLIENT_ID: client2
       CLOCK_OFFSET: "6"
     depends_on:
-      - master
+      master:
+        condition: service_healthy
     networks:
       - clock-net
 
   client3:
     build: ./client
+    image: shadoweternity/cs_ca_follower:latest
     container_name: clock-client3
     environment:
       CLIENT_ID: client3
       CLOCK_OFFSET: "-4"
     depends_on:
-      - master
+      master:
+        condition: service_healthy
     networks:
       - clock-net
 
   client4:
     build: ./client
+    image: shadoweternity/cs_ca_follower:latest
     container_name: clock-client4
     environment:
       CLIENT_ID: client4
       CLOCK_OFFSET: "10"
     depends_on:
-      - master
+      master:
+        condition: service_healthy
     networks:
       - clock-net
 
